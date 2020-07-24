@@ -1,0 +1,18 @@
+<div align="center">
+
+  <div class="flex">
+    <div class="shadow_box">
+      <%= image_tag @artist.image_id.to_s %>
+    </div>
+    <div class="artist_label">
+      <label class="btn btn-gradient btn-lg"><span><%= @artist.name %></span></label>
+	  <br>
+	  since <%= @artist.formation_yeah %>~
+	</div>
+  </div>
+
+  <br><br><br>
+
+  <%= @artist.detail %>
+
+</div>

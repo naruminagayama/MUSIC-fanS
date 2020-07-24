@@ -1,0 +1,30 @@
+<div align="center">
+
+  <div class="flex">
+    <div class="shadow_box">
+      <%= image_tag @song.image_id.to_s %>
+    </div>
+    <div class="artist_label">
+      <label class="btn btn-gradient btn-lg"><span><%= @song.name %></span></label>
+	  <br>
+	  <%= @song.sale_year %> release
+	</div>
+  </div>
+
+  <br><br><br>
+
+  <%= @song.detail %>
+
+  <!-- 再生プレイヤー -->
+  <% if @song.id == 1 %>
+    <%= audio_tag 'pastel.mp3' %>
+  <% end %>
+
+  <!-- audiojsの初期化 -->
+  <script>
+    audiojs.events.ready(function() {
+      var as = audiojs.createAll();
+    });
+  </script>
+
+</div>

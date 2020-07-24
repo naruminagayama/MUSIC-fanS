@@ -1,0 +1,21 @@
+<div align="center">
+
+  <h3>楽曲一覧</h3>
+
+  <% @songs.each do |song| %>
+  <% if song.is_active == true %>
+    <div class="flex">
+	  <div class="artist_box">
+	  	<div class="shadow_box">
+		  <%= image_tag song.image_id.to_s %>
+		</div>
+		<br>
+		<%= song.name %>
+		<br>
+		<a href="/public/songs/<%= song.id %>" class="btn btn-gradient"><span>VIEW MORE</span></a>
+	  </div>
+    </div>
+  <% end %>
+  <% end %>
+
+</div>
