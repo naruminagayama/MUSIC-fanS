@@ -1,0 +1,13 @@
+<div class="container">
+  <%= link_to "<<back index", public_communities_path %>
+  <h1><%= "Community #{@community.name}" %></h1>
+  <div id="chats", data-community_id="<%= @community.id %>">
+    <%= render @chats %>
+  </div>
+  <div class="input">
+    <form>
+      <label>post</label>
+      <input type="text" data-behavior="community_speaker">
+    </form>
+  </div>
+</div>
