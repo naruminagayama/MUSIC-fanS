@@ -20,5 +20,3 @@
 //= require bootstrap-sprockets
 
 //= require audiojs
-
-//= require jquery
