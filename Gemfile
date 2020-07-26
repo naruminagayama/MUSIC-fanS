@@ -79,3 +79,5 @@ gem 'jquery-rails'
 gem 'carrierwave'
 
 gem 'audiojs-rails'
+
+gem 'pry-byebug'

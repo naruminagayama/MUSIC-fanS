@@ -14,13 +14,13 @@
 		<br>
 		<a href="/public/artists/<%= artist.id %>" class="btn btn-gradient"><span>VIEW MORE</span></a>
 
-  <% if Artist.favorited_by?(current_user) %>
+  <% if artist.favorited_by?(current_customer) %>
     <%= link_to public_artist_favorites_path(artist), method: :delete do %>
-        ♡️<%= artist.favorites.count %>
+        ❤︎<%= artist.favorites.count %>
     <% end %>
   <% else %>
     <%= link_to public_artist_favorites_path(artist), method: :post do %>
-        ♡️<%= artist.favorites.count %>
+        ♡<%= artist.favorites.count %>
     <% end %>
   <% end %>
 

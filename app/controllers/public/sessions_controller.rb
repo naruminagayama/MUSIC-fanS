@@ -1,2 +1,2 @@
-class Public::SessionsController < ApplicationController
+class Public::SessionsController < Devise::SessionsController
 end

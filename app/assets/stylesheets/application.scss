@@ -22,6 +22,27 @@
    /*background-color: black;*/
  }
 
+ header {
+   display:flex;
+   height: 50px;
+   background-color: #1d1d1f;
+   justify-content: center;
+ }
+
+ header div {
+   display: flex;
+   padding: 12px 50px 0 50px;
+   text-align: center;
+   .edit_link {
+   text-decoration: none;
+   color: silver;
+   }
+ }
+
+ .icon {
+  border-radius: 50%;
+ }
+
  .flex {
    display: inline-flex;
    justify-content: space-between;

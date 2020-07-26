@@ -12,6 +12,9 @@ Rails.application.routes.draw do
   root 'public/homes#top'
 
   namespace :public do
+    resources :customers
+    get '/customers/:id/follower' => 'customers#follower', as: 'follower'
+    get '/customers/:id/followed' => 'customers#followed', as: 'followed'
   	resources :artists, only: [:index, :show] do
       resource :favorites, only: [:create, :destroy]
     end
@@ -19,6 +22,8 @@ Rails.application.routes.draw do
       resource :favorites, only: [:create, :destroy]
     end
   	resources :communities, only: [:index, :show]
+    post 'follow/:id' => 'relationships#follow', as: 'follow' # フォローする
+    post 'unfollow/:id' => 'relationships#unfollow', as: 'unfollow' # フォロー外す
   end
 
 end
