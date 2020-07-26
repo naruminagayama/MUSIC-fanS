@@ -1,0 +1,7 @@
+<h1>Index</h1>
+
+<% @communities.each do |community| %>
+  <div>
+    <%= link_to "Community#{community.id}", public_community_path(community) %>
+  </div>
+<% end %>
