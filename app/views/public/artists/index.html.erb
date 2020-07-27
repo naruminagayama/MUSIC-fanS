@@ -14,15 +14,9 @@
 		<br>
 		<a href="/public/artists/<%= artist.id %>" class="btn btn-gradient"><span>VIEW MORE</span></a>
 
-  <% if artist.favorited_by?(current_customer) %>
-    <%= link_to public_artist_favorites_path(artist), method: :delete, remote: true do %>
-        ❤︎<%= artist.favorites.count %>
-    <% end %>
-  <% else %>
-    <%= link_to public_artist_favorites_path(artist), method: :post, remote: true do %>
-        ♡<%= artist.favorites.count %>
-    <% end %>
-  <% end %>
+  <div class="artist_<%= artist.id %>">
+    <%= render 'public/artists/favorite', artist: artist %>
+  </div>
 
 	  </div>
     </div>

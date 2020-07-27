@@ -1,0 +1,9 @@
+<% if artist.favorited_by?(current_customer) %>
+  <%= link_to public_artist_favorites_path(artist), method: :delete, remote: true do %>
+    ❤︎<%= artist.favorites.count %>
+  <% end %>
+  <% else %>
+    <%= link_to public_artist_favorites_path(artist), method: :post, remote: true do %>
+      ♡<%= artist.favorites.count %>
+  <% end %>
+<% end %>

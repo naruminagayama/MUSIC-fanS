@@ -1,0 +1,39 @@
+<div class="row">
+
+  <div class="sidebar col-md-3">
+    <div class="content_border">
+      <h6 class="blog_headline">Blog投稿</h6>
+     <%= form_for @blog, url: public_blogs_path do |f| %>
+        <h6 class="pt-2">Title</h6>
+          <%= f.text_field :title, class: "btn-block" %>
+        <h6 class="pt-2">Content</h6>
+          <%= f.text_area :content, class: "btn-block" %><br>
+        <%= f.submit 'Create Blog', class: "btn btn-primary btn-block" %>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="main col-md-9">
+<table class="table table-hover">
+<thead>
+<tr>
+  <th></th><th>Title</th><th>Opinion</th>
+</tr>
+</thead>
+<% @blogs.each do |blog| %>
+<tr>
+  <td>
+  <% if @customer.image_id? %>
+    <%= image_tag @customer.image_id.url, :size => '100x100', class: 'icon' %>
+   <% else %>
+    <%= image_tag "/assets/noimage.jpg", :size => '100x100', class: 'icon' %>
+   <% end %>
+  </td>
+  <td><%= link_to blog.title %></td>
+  <td><%= blog.content %></td>
+</tr>
+<% end %>
+</table>
+
+  </div>
+</div>

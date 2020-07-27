@@ -11,15 +11,19 @@
 
   <% if customer_signed_in? %>
     <header>
-      <div><%= link_to 'Mypage', public_customer_path(current_customer), class: "edit_link" %></div>
-      <div><%= link_to 'Community', public_communities_path, class: "edit_link" %></div>
       <div><%= link_to 'Help', public_artists_path, class: "edit_link" %></div>
       <div><%= link_to 'Artists', public_artists_path, class: "edit_link" %></div>
       <div><%= link_to 'Songs', public_songs_path, class: "edit_link" %></div>
+      <div><%= link_to 'Community', public_communities_path, class: "edit_link" %></div>
+      <div><%= link_to 'Blog', public_blogs_path, class: "edit_link" %></div>
       <div><%= link_to 'Logout',  destroy_customer_session_path, method: :delete, class: "edit_link" %></div>
     </header>
   <% end %>
-  <body>
-    <%= yield %>
-  </body>
+  <div class="container_cover"> 
+    <div class="container">
+      <body>
+        <%= yield %>
+      </body>
+    </div>
+  </div>
 </html>
