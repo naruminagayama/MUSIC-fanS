@@ -1,31 +1,25 @@
-<div class="container">
+<div class="content_border">
 
   <h2 class="text-center">Log in</h2><br>
 
   <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <div align="center">
     <table class="customer_form">
-      <thead>
-        <th></th>
-        <th></th>
-      </thead>
       <tbody>
         <tr>
-          <td>メールアドレス　　　　　</td>
+          <td>　　　　メールアドレス</td>
           <td>
             <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
           </td>
         </tr>
         <tr>
-          <td>パスワード</td>
+          <td>　　　　パスワード</td>
           <td>
             <%= f.password_field :password, autocomplete: "current-password" %>
           </td>
         </tr>
       </tbody>
     </table>
-
-  <br>
 
   <% if devise_mapping.rememberable? %>
     <div class="field">

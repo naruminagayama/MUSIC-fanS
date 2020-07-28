@@ -2,18 +2,19 @@ class Public::BlogsController < ApplicationController
 
   def index
   	@customer = current_customer
-  	@blog = Blog.new
+    if params[:id].present?
+      @blog = Blog.find(params[:id])
+    else
+  	  @blog = Blog.new
+    end
   	@blogs = Blog.all
   end
 
   def create
-	@blog = Blog.new(blog_params)
-	@blog.customer_id = current_customer.id
-	@blog.save
-  end
-
-  def edit
-  	@blog = Blog.find(params[:id])
+	  @blog = Blog.new(blog_params)
+	  @blog.customer_id = current_customer.id
+	  @blog.save
+    redirect_to public_blogs_path
   end
 
   def update
@@ -21,6 +22,7 @@ class Public::BlogsController < ApplicationController
     @blog.update(blog_params)
     redirect_to public_blogs_path
   end
+
 
   def destroy
   	@blog = Blog.find(params[:id])

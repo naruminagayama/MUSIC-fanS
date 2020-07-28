@@ -17,11 +17,6 @@
  /*Custom bootstrap variables must be set or imported *before* bootstrap.*/
  @import "bootstrap";
 
- * {
-   /*color: white;*/
-   /*background-color: black;*/
- }
-
  .container_cover {
    height: 100%;
    background: linear-gradient(#2CD8D5 0%, #C5C1FF 56%, #FFBAC3 100%);
@@ -34,9 +29,9 @@
  }
 
  .content_border {
-   border: 1px solid black;
-   padding: 15px;
+   border: 1px solid white;
    background-color: white;
+   padding: 15px;
  }
 
  header {
@@ -149,4 +144,23 @@
    background-image: -webkit-gradient(linear, left top, right top, from(#f83600), to(#f9d423));
    background-image: -webkit-linear-gradient(left, #f83600 0%, #f9d423 100%);
    background-image: linear-gradient(to right, #f83600 0%, #f9d423 100%);
+ }
+
+ .hidden_imageform {
+   display: none;
+ }
+
+ .file_select {
+   border: 2px dashed silver;
+   padding: 8px;
+   background: yellow;
+   border-radius: 5px;
+ }
+
+ .flex_blog {
+   display: flex;
+ }
+
+ .flex_blog h5 {
+   padding: 25px 0 0 20px;
  }
