@@ -2,7 +2,7 @@
   <div class="sidebar col-md-3">
     <div class="content_border">
       <h6 class="blog_headline">Blog投稿</h6>
-     <%= form_for @blog, url: public_blogs_path do |f| %>
+      <%= form_for @blog, url: public_blogs_path do |f| %>
         <h6 class="pt-2">Title</h6>
           <%= f.text_field :title, class: "btn-block" %>
         <h6 class="pt-2 pb-2">Picture</h6>
@@ -14,19 +14,9 @@
           </label>
         <h6 class="pt-2">Content</h6>
           <%= f.text_area :content, class: "btn-block" %><br>
-        <%= f.datetime_select :start_time %>
+        <%= f.datetime_select :start_time %><br><br>
         <%= f.submit 'Create Blog', class: "btn btn-primary btn-block" %>
       <% end %>
-
-<%= month_calendar events: @blogs do |date, blogs| %>
-  <%= date.day %>
-  <% blogs.each do |blog| %>
-    <div>
-      <%= link_to blog.title %>
-    </div>
-  <% end %>
-<% end %>
-
     </div>
   </div>
 
@@ -59,6 +49,16 @@
       </div>
       <br><br>
       <% end %>
+      <div class="calendar_size">
+        <%= month_calendar events: @blogs do |date, blogs| %>
+          <%= date.day %>
+          <% blogs.each do |blog| %>
+            <div>
+              <%= link_to blog.title %>
+            </div>
+          <% end %>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>
