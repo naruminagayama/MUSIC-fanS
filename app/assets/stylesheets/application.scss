@@ -100,9 +100,7 @@
    padding-left: 200px;
  }
 
- /*VIEW MOREボタン*/
-
- a.btn-gradient {
+ a.btn_viewmore {
    color: #fff;
    border-radius: 100vh;
    background-image: -webkit-linear-gradient(110deg, #e9defa 0%, #fbfcdb 100%);
@@ -111,7 +109,7 @@
    box-shadow: 0 5px 10px rgba(0, 0, 0, .2);
  }
 
- a.btn-gradient span {
+ a.btn_viewmore span {
    background-image: -webkit-gradient(linear, left top, right top, from(#93a5cf), to(#e4efe9));
    background-image: -webkit-linear-gradient(left, #93a5cf 0%, #e4efe9 100%);
    background-image: linear-gradient(to right, #93a5cf 0%, #e4efe9 100%);
@@ -119,14 +117,12 @@
    -webkit-text-fill-color: transparent;
  }
 
- a.btn-gradient:hover {
+ a.btn_viewmore:hover {
    -webkit-box-shadow: 0 5px 15px rgba(0, 0, 0, .3);
    box-shadow: 0 5px 15px rgba(0, 0, 0, .3);
  }
 
- /*詳細アーティスト名*/
-
- label.btn-gradient {
+ label.btn_artistname {
    color: #fff;
    border: 2px solid #fff;
    border-radius: 0;
@@ -146,6 +142,17 @@
    background-image: linear-gradient(to right, #f83600 0%, #f9d423 100%);
  }
 
+ .blog_editheadline {
+   width: 32%;
+   padding: 1rem 2rem;
+   color: #fff;
+   border-radius: 10px;
+   background-image: -webkit-gradient(linear, right top, left top, from(#9be15d), to(#00e3ae));
+   background-image: -webkit-linear-gradient(right, #9be15d 0%, #00e3ae 100%);
+   background-image: linear-gradient(to left, #9be15d 0%, #00e3ae 100%);
+ }
+
+
  .hidden_imageform {
    display: none;
  }
@@ -163,4 +170,64 @@
 
  .flex_blog h5 {
    padding: 25px 0 0 20px;
+ }
+
+ .blog_datetime {
+   color: gray;
+   margin: 24px;
+ }
+
+ .blog_edit_titleform {
+   width: 20%;
+   height: 40px;
+ }
+
+ .blog_edit_contentform {
+   width: 32%;
+ }
+
+ .btn_blogedit {
+   display: inline-block;
+   max-width: 180px;
+   text-align: left;
+   background-color: #00cc66;
+   font-size: 16px;
+   color: #FFF;
+   text-decoration: none;
+   padding: 10px 24px;
+   margin: 14px;
+   border-radius: 4px;
+   border-bottom: 4px solid #669999;
+ }
+
+ .btn_blogedit:active {
+   transform: translateY(4px);
+   border-bottom: none;
+   color: #FFF;
+   text-decoration: none;
+ }
+
+ .btn_blogdelete {
+   display: inline-block;
+   max-width: 180px;
+   text-align: left;
+   background-color: #ff0066;
+   font-size: 16px;
+   color: #FFF;
+   text-decoration: none;
+   padding: 10px 24px;
+   margin: 14px 14px 14px 0;
+   border-radius: 4px;
+   border-bottom: 4px solid #993300;
+ }
+
+ .btn_blogdelete:active {
+   transform: translateY(4px);
+   border-bottom: none;
+   color: #FFF;
+   text-decoration: none;
+ }
+
+ .blog_content {
+   padding-left: 23px;
  }

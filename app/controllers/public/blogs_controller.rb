@@ -2,11 +2,7 @@ class Public::BlogsController < ApplicationController
 
   def index
   	@customer = current_customer
-    if params[:id].present?
-      @blog = Blog.find(params[:id])
-    else
-  	  @blog = Blog.new
-    end
+  	@blog = Blog.new
   	@blogs = Blog.all
   end
 
@@ -17,12 +13,15 @@ class Public::BlogsController < ApplicationController
     redirect_to public_blogs_path
   end
 
+  def edit
+    @blog = Blog.find(params[:id])
+  end
+
   def update
     @blog = Blog.find(params[:id])
     @blog.update(blog_params)
     redirect_to public_blogs_path
   end
-
 
   def destroy
   	@blog = Blog.find(params[:id])

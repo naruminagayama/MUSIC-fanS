@@ -1,0 +1,15 @@
+<h6 class="blog_editheadline">Blog編集</h6>
+  <%= form_for @blog, url: public_blog_path do |f| %>
+    <h6 class="pt-2">Title</h6>
+      <%= f.text_area :title, class: "blog_edit_titleform" %>
+    <h6 class="pt-2 pb-2">Picture</h6>
+      <label>
+        <span class="file_select">
+          ファイルを選択する
+        </span>
+        <%= f.file_field :image_id, accept: 'image/jpeg,image/gif,image/png', class: "hidden_imageform" %>
+      </label>
+    <h6 class="pt-2">Content</h6>
+      <%= f.text_area :content, class: "blog_edit_contentform" %><br><br>
+    <%= f.submit '　　　　Update Blog　　　　' %>
+  <% end %>

@@ -22,8 +22,7 @@ Rails.application.routes.draw do
       resource :favorites, only: [:create, :destroy]
     end
   	resources :communities, only: [:index, :show]
-    resources :blogs, except: [:new, :show, :edit, :update]
-    patch 'blogs' => 'blogs#update'
+    resources :blogs, except: [:new, :show]
     post 'follow/:id' => 'relationships#follow', as: 'follow' # フォローする
     post 'unfollow/:id' => 'relationships#unfollow', as: 'unfollow' # フォロー外す
   end
