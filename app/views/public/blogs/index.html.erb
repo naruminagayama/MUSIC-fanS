@@ -14,8 +14,19 @@
           </label>
         <h6 class="pt-2">Content</h6>
           <%= f.text_area :content, class: "btn-block" %><br>
+        <%= f.datetime_select :start_time %>
         <%= f.submit 'Create Blog', class: "btn btn-primary btn-block" %>
       <% end %>
+
+<%= month_calendar events: @blogs do |date, blogs| %>
+  <%= date.day %>
+  <% blogs.each do |blog| %>
+    <div>
+      <%= link_to blog.title %>
+    </div>
+  <% end %>
+<% end %>
+
     </div>
   </div>
 

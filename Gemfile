@@ -77,7 +77,6 @@ gem 'bootstrap', '~> 4.1.1'
 gem 'jquery-rails'
 
 gem 'carrierwave'
-
 gem 'audiojs-rails'
-
 gem 'pry-byebug'
+gem 'simple_calendar', '~> 2.0'
