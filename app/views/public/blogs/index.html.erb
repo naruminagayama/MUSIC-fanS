@@ -49,6 +49,7 @@
       </div>
       <br><br>
       <% end %>
+      <%= paginate @blogs %>
       <div class="calendar_size">
         <%= month_calendar events: @blogs do |date, blogs| %>
           <%= date.day %>
