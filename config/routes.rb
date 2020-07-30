@@ -17,6 +17,9 @@ Rails.application.routes.draw do
     get '/customers/:id/followed' => 'customers#followed', as: 'followed'
   	resources :artists, only: [:index, :show] do
       resource :favorites, only: [:create, :destroy]
+      collection do
+        get 'search'
+      end
     end
   	resources :songs, only: [:index, :show] do
       resource :favorites, only: [:create, :destroy]
