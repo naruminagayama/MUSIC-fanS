@@ -1,5 +1,4 @@
 <div align="center">
-
   <div class="flex">
     <div class="shadow_box">
       <%= image_tag @artist.image_id.to_s %>
@@ -8,11 +7,12 @@
       <label class="btn btn_artistname btn-lg"><span><%= @artist.name %></span></label>
 	  <br>
 	  since <%= @artist.formation_yeah %>~
-	</div>
+	  </div>
   </div>
-
   <br><br><br>
 
-  <%= @artist.detail %>
+  <div class="content_border">
+    <%= @artist.detail %>
+  </div>
 
 </div>

@@ -22,6 +22,9 @@ Rails.application.routes.draw do
       end
     end
   	resources :songs, only: [:index, :show] do
+      collection do
+        get 'search'
+      end
       resource :favorites, only: [:create, :destroy]
     end
   	resources :communities, only: [:index, :show]

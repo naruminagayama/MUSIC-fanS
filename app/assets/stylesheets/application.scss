@@ -58,18 +58,92 @@
 
  .flex {
    display: inline-flex;
-   justify-content: space-between;
+ }
+
+ .search_btn {
+   
+ }
+
+ .ranking_label {
+   width: 40%;
+   position: relative;
+   margin: 30px;
+   text-align: center;
+ }
+
+ .ranking_label:before, .ranking_label:after {
+   position: absolute;
+   z-index: 0;
+   bottom: -10px;
+   display: block;
+   content: '';
+   border: 1em solid #d90606;
+ }
+
+ .ranking_label:before {
+   left: -30px;
+   border-left-width: 15px;
+   border-left-color: transparent;
+ }
+
+ .ranking_label:after {
+   right: -30px;
+   border-right-width: 15px;
+   border-right-color: transparent;
+ }
+
+ .ranking_label span {
+   position: relative;
+   z-index: 1;
+   display: block;
+   padding: 1rem 2rem;
+   color: #fff;
+   background: #fa4141;
+ }
+
+ .ranking_label span:before, .ranking_label span:after {
+   position: absolute;
+   bottom: -10px;
+   display: block;
+   width: 10px;
+   height: 10px;
+   content: '';
+   border-style: solid;
+  border-color: #b70505 transparent transparent transparent;
+ }
+
+ .ranking_label span:before {
+   left: 0;
+   border-width: 10px 0 0 10px;
+ }
+
+ .ranking_label span:after {
+   right: 0;
+   border-width: 10px 10px 0 0;
  }
 
  .artist_box {
    width: 200px;
    height: auto;
-   margin: 30px 100px 0 0;
-   text-align:center;
+   margin: 50px;
+   text-align: center;
+ }
+
+ .new_artist_box {
+   width: 150px;
+   height: auto;
+   margin: 40px;
+   text-align: center;
  }
 
  .shadow_box {
    width: 210px;
+   border:5px solid #AAAAAA;
+   box-shadow: 0 10px 10px #666666;
+ }
+
+ .new_shadow_box {
+   width: 160px;
    border:5px solid #AAAAAA;
    box-shadow: 0 10px 10px #666666;
  }
@@ -79,8 +153,83 @@
    transition-duration: 0.5s;
  }
 
- .flex .artist_box:nth-child(3n) {
+ .artist_box:nth-child(3n) {
    margin-right: 0;
+ }
+
+ .best1_label {
+   padding: 1rem 2rem;
+   color: #fff;
+   background-image: linear-gradient(135deg, #704308 0%, #ffce08 40%, #e1ce08 60%, #704308 100%);
+ }
+
+ .best2_label {
+   padding: 1rem 2rem;
+   color: #fff;
+   background-image: linear-gradient(135deg, #757575 0%, #e8e8e8 40%, #9e9e9e 60%, #757575 100%);
+ }
+
+ .best3_label {
+   padding: 1rem 2rem;
+   color: #fff;
+   background-image: linear-gradient(135deg, #ba6e40 0%, #c9ae5d 40%, #c08d5e 60%, #ba6e40 100%);
+
+ }
+
+ .ribbon_wrapper {
+   display: block;
+   position: relative;
+   margin: 15px auto;
+   padding: 10px 0;
+   width: 850px;
+   height: 400px;
+   background: #f1f1f1;
+   box-shadow: 0 3px 5px rgba(0, 0, 0, 0.14);
+   box-sizing: border-box;
+ }
+
+ .ribbon_content {
+   position: absolute;
+   top: -6px;
+   right: -6px;
+   width: 89px;
+   height: 91px;
+   overflow: hidden;
+ }
+
+ .ribbon {
+   display: inline-block;
+   position: absolute;
+   padding: 7px 0;
+   left: -23px;
+   top: 22px;
+   width: 160px;
+   text-align: center;
+   font-size: 18px;
+   line-height: 16px;
+   background: linear-gradient(to right, #4298fa 0%,#8fcdff 100%);
+   color: #fff;
+   text-shadow: 0 2px 2px #56a1f3;
+   letter-spacing: 0.05em;
+   transform: rotate(45deg);
+   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+ } 
+
+ .ribbon:before, .ribbon:after {
+   position: absolute;
+   content: "";
+   border-top: 4px solid #3672b6;
+   border-left: 4px solid transparent;
+   border-right: 4px solid transparent;
+   bottom: -4px;
+ }
+
+ .ribbon:before {
+   left: 14px;
+ }
+
+ .ribbon:after {
+   right: 18px;
  }
 
  .btn-real-dent {
@@ -96,9 +245,44 @@
    box-shadow: inset 0 0 4px rgba(0, 0, 0, 0.08);
  }
 
- .artist_label {
-   line-height: 105px;
-   padding-left: 200px;
+ .new_artist_name a {
+   line-height:0.95em;
+   font-weight:bold;
+   color: transparent;
+   background: linear-gradient( 0deg, #F57C00 0% 60% , #FFB74D 60% 100%);
+   -webkit-background-clip: text;
+ }
+
+ /* アーティスト一覧 見出し */
+
+ .artist_list_label {
+   width: 45%;
+   position: relative;
+   padding: 1rem 2rem;
+   box-shadow: 0 2px 14px rgba(0, 0, 0, .1);
+   color: white;
+   background-color: #aaaaaa;
+ }
+
+ .artist_list_label:before, .artist_list_label:after {
+   position: absolute;
+   left: 0;
+   width: 100%;
+   height: 4px;
+   content: '';
+   background-image: linear-gradient(135deg, #704308 0%, #ffce08 40%, #e1ce08 60%, #704308 100%);
+ }
+
+ .artist_list_label:before {
+   top: 0;
+ }
+
+ .artist_list_label:after {
+   bottom: 0;
+ }
+
+ .artist_label {   
+   padding: 70px 0 0 200px;
  }
 
  a.btn_viewmore {
