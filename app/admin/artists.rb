@@ -15,7 +15,7 @@ ActiveAdmin.register Artist do
   #   permitted
   # end
 
-  permit_params :name, :detail, :image_id, :formation_yeah, :is_active
+  permit_params :name, :detail, :image_id, :formation_yeah, :is_active, :community_id
 
   form do |f|
     f.inputs do

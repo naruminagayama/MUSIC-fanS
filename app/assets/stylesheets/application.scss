@@ -18,6 +18,9 @@
  /*Custom bootstrap variables must be set or imported *before* bootstrap.*/
  @import "bootstrap";
 
+ @import "font-awesome-sprockets";
+ @import "font-awesome";
+
  .container_cover {
    height: 100%;
    background: linear-gradient(#2CD8D5 0%, #C5C1FF 56%, #FFBAC3 100%);
@@ -132,7 +135,7 @@
  .new_artist_box {
    width: 150px;
    height: auto;
-   margin: 40px;
+   margin: 20px;
    text-align: center;
  }
 
@@ -182,7 +185,7 @@
    margin: 15px auto;
    padding: 10px 0;
    width: 850px;
-   height: 400px;
+   height: 390px;
    background: #f1f1f1;
    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.14);
    box-sizing: border-box;
@@ -281,6 +284,11 @@
    bottom: 0;
  }
 
+ .fa_small {
+   font-size: 10px;
+   color: #ffc107;
+ }
+
  .artist_label {   
    padding: 70px 0 0 200px;
  }
@@ -316,6 +324,52 @@
    background-image: linear-gradient(to right, #fa709a 0%, #fee140 100%);
    -webkit-box-shadow: 0 5px 10px rgba(0, 0, 0, .1);
    box-shadow: 0 8px 15px rgba(0, 0, 0, .2);
+ }
+
+ /* アーティスト詳細 楽曲リスト見出し */
+
+ .artistshow_songlist {
+   line-height: 45px;
+   position: relative;
+   width: 15%;
+   height: 45px;
+   margin: 2em 50px 1em;
+   padding: 0 2rem;
+   text-align: center;
+   color: #fff;
+   background: #fa4141;
+ }
+
+ .artistshow_songlist:before, .artistshow_songlist:after {
+   position: absolute;
+   top: 0;
+   display: block;
+   height: 45px;
+   content: '';
+   border: 22px solid #fa4141;
+ }
+
+ .artistshow_songlist:before {
+   left: -20px;
+   border-left-width: 15px;
+   border-left-color: transparent;
+ }
+
+ .artistshow_songlist:after {
+   right: -20px;
+   border-right-width: 15px;
+   border-right-color: transparent;
+ }
+
+ .artistshow_songlist span {
+   position: relative;
+   display: block;
+ }
+
+ /* 詳細コメント padding */
+
+ .detail_space {
+   padding: 0 50px 0 50px;
  }
 
  .blog_headline {
@@ -415,4 +469,11 @@
 
  .blog_content {
    padding-left: 23px;
+ }
+
+ /* pagination デザイン */
+
+ .pagination {
+   color: pink;
+   border-radius: 15px;
  }
