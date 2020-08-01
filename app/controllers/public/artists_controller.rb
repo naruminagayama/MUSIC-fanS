@@ -4,6 +4,10 @@ class Public::ArtistsController < ApplicationController
   	@artists = Artist.all
   	@all_ranks = Artist.find(Favorite.group(:artist_id).order('count(artist_id) desc').limit(3).pluck(:artist_id))
     @new_artists = Artist.all.order("created_at desc").page(params[:page]).per(4)
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
   def show

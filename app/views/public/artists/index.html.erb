@@ -70,18 +70,9 @@
       <span class="ribbon">NEW</span>
       </div>
       <strong>New ARTIST</strong><p>　注目の新着アーティスト</p>
-      <% @new_artists.each.with_index(1) do |artist, i| %>
-      <div class="flex">
-        <div class="new_artist_box">
-          <div class="new_shadow_box">
-            <%= image_tag artist.image_id.to_s, :size => "150x150" %>
-          </div>
-          <br>
-          <p class="new_artist_name"><%= link_to artist.name, public_artist_path(artist.id) %></p>
-        </div>
+      <div id="new_artists">
+        <%= render :partial => "new_artists" %>
       </div>
-      <% end %>
-      <%= paginate @new_artists %>
     </div>
     <br>
     <br>
