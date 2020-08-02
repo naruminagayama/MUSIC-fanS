@@ -1,4 +1,4 @@
-->
+document.addEventListener 'turbolinks:load', ->
   community_id = $('#chats').data('community_id')
   App.community = App.cable.subscriptions.create { channel: "CommunityChannel", community_id: community_id },
     connected: ->

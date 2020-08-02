@@ -10,10 +10,10 @@ class CommunityChannel < ApplicationCable::Channel
 
   def speak(data)
     chat = Chat.create!(message: data['chat'],
-                              user_id: current_customer.id,
+                          customer_id: current_customer.id,
                          community_id: params['community_id'])
     render_chat = ApplicationController.renderer.render(partial: 'chats/chat',
-                                                            locals: {chat: chat})
+                                                        locals: {chat: chat})
     ActionCable.server.broadcast 'community_channel',
                                   chat: render_chat,
                           community_id: params['community_id']

@@ -7,9 +7,8 @@ class Public::CommunitiesController < ApplicationController
   end
 
   def show
-    #binding.pry
     @community = Community.find(params[:id])
-    @chats = @community.chats.recent.limit(5).reverse
+    @chats = @community.chats
   end
 
 end

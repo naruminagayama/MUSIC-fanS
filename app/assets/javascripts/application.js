@@ -19,4 +19,8 @@
 //= require popper
 //= require bootstrap-sprockets
 
+//= require jquery-ui
+//= require tag-it
+//= require turbolinks
+
 //= require audiojs

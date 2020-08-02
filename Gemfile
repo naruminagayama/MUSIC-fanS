@@ -82,3 +82,6 @@ gem 'pry-byebug'
 gem 'simple_calendar', '~> 2.0'
 gem 'kaminari'
 gem 'font-awesome-sass', '~> 5.13.0'
+
+gem 'acts-as-taggable-on', '~> 6.0'
+gem 'jquery-ui-rails'

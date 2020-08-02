@@ -5,6 +5,8 @@ class Customer < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+  # has_many :customer_communities
+  # has_many :community, through: :customer_communities
   has_many :chats
   has_many :favorites, dependent: :destroy
   has_many :follower, class_name: "Relationship", foreign_key: "follower_id", dependent: :destroy # フォロー取得

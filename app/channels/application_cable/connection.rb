@@ -15,6 +15,5 @@ module ApplicationCable
         return reject_unauthorized_connection unless verified_customer
         verified_customer
       end
-
   end
 end

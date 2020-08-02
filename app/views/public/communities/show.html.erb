@@ -1,5 +1,5 @@
 <div class="container">
-  <%= link_to "<<back index", public_communities_path %>
+  <%= link_to "◀︎community一覧へ戻る", public_communities_path %>
   <h1><%= "Community #{@community.name}" %></h1>
   <div id="chats", data-community_id="<%= @community.id %>">
     <%= render @chats %>
