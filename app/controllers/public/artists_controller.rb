@@ -1,7 +1,7 @@
 class Public::ArtistsController < ApplicationController
   
   def index
-  	@artists = Artist.all
+  	@artists = Artist.all.page(params[:page]).per(6)
   	@all_ranks = Artist.find(Favorite.group(:artist_id).order('count(artist_id) desc').limit(3).pluck(:artist_id))
     @new_artists = Artist.all.order("created_at desc").page(params[:page]).per(4)
     respond_to do |format|

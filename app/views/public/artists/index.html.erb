@@ -86,23 +86,8 @@
       <i class="fas fa-star fa_small"></i>
       <i class="fas fa-star fa_small"></i>
     </h3>
-    <% @artists.each do |artist| %>
-    <% if artist.is_active == true %>
-      <div class="flex">
-        <div class="artist_box">
-          <div class="shadow_box">
-            <%= image_tag artist.image_id.to_s %>
-          </div>
-          <br>
-          <%= artist.name %>
-          <br>
-          <a href="/public/artists/<%= artist.id %>" class="btn btn_viewmore"><span>VIEW MORE</span></a>
-          <div class="artist_<%= artist.id %>">
-            <%= render 'public/artists/favorite', artist: artist, locals: {artist: artist} %>
-          </div>
-        </div>
-      </div>
-    <% end %>
-    <% end %>
+    <div id="artists">
+      <%= render :partial => "artists" %>
+    </div>
   </div>
 </div>
