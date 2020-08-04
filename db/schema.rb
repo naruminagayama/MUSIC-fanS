@@ -88,6 +88,8 @@ ActiveRecord::Schema.define(version: 2020_08_02_175634) do
   end
 
   create_table "customer_communities", force: :cascade do |t|
+    t.integer "customer_id"
+    t.integer "community_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

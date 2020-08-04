@@ -1,8 +1,7 @@
 class Chat < ApplicationRecord
 
-  belongs_to :customer
-  belongs_to :community
-  validates :message, presence: true
-  scope :recent, -> { order(created_at: :desc)}
+  after_create_commit {MessageBroadcastJob.perform_later(self)}
+  # belongs_to :customer
+  # belongs_to :community
 
 end

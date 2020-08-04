@@ -9,7 +9,7 @@ Rails.application.routes.draw do
     sessions: 'public/sessions'
   }
 
-  root 'public/homes#top'
+  root 'homes#top'
 
   namespace :public do
     resources :customers

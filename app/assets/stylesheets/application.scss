@@ -34,6 +34,24 @@
    background: linear-gradient(#2CD8D5 0%, #C5C1FF 56%, #FFBAC3 100%);
  }
 
+ .top_title {
+   font-weight: 700;
+   font-size: 70px;
+   letter-spacing: 0.05em;
+ }
+
+ .top_text1 {
+   text-align: left;
+   font-weight: bold;
+   font-size: 20px;
+ }
+
+ .top_text2 {
+   text-align: right;
+   font-weight: bold;
+   font-size: 20px;
+ }
+
  .content_border {
    border: 1px solid white;
    background-color: white;

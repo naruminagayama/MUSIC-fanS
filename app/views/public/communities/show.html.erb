@@ -1,13 +1,5 @@
-<div class="container">
-  <%= link_to "◀︎community一覧へ戻る", public_communities_path %>
-  <h1><%= "Community #{@community.name}" %></h1>
-  <div id="chats", data-community_id="<%= @community.id %>">
-    <%= render @chats %>
-  </div>
-  <div class="input">
-    <form>
-      <label>post</label>
-      <input type="text" data-behavior="community_speaker">
-    </form>
-  </div>
+<h1>Community room</h1>
+<div id="chats">
+ <%= render @chats %>
 </div>
+<%= text_field_tag :message %>
