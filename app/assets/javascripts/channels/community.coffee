@@ -5,6 +5,7 @@ App.community = App.cable.subscriptions.create "CommunityChannel",
   disconnected: ->
     # Called when the subscription has been terminated by the server
 
+
   received: (data) ->
     $("#chats").append(data["message"])
     # Called when there's incoming data on the websocket for this channel

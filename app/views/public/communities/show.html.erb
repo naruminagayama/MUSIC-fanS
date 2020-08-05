@@ -1,5 +1,5 @@
-<h1>Community room</h1>
-<div id="chats">
+<h1>Community <%= @community.name %></h1>
+<div id="chats" data-community_id="<%= @community.id %>">
  <%= render @chats %>
 </div>
 <%= text_field_tag :message %>

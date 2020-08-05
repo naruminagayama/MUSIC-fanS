@@ -1,6 +1,6 @@
 class CommunityChannel < ApplicationCable::Channel
   def subscribed
-    stream_from "community_channel"
+    stream_from "community_channe_#{params['community_id']}"
 
   end
 
@@ -9,6 +9,6 @@ class CommunityChannel < ApplicationCable::Channel
   end
 
   def speak(data)
-    Chat.create(message: data["message"])                                  
+    Chat.create(message: data["message"], community: Community.find(params['community_id']))                                  
   end
 end

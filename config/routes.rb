@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   }
 
   root 'homes#top'
+  get '/homes/about' => 'homes#about'
 
   namespace :public do
     resources :customers

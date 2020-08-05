@@ -23,6 +23,141 @@
  @import "font-awesome-sprockets";
  @import "font-awesome";
 
+ .bg_slider1 {
+   width: 100vw;
+   height: calc(100% / 3);
+   background-size: cover;
+   background-position: center;
+   justify-content: center;
+   padding: 35px 50px 35px 50px;
+ }
+
+ .bg_slider2 {
+   width: 100vw;
+   height: calc(100% / 3);
+   background-size: cover;
+   background-position: center;
+   justify-content: center;
+   padding: 43px 100px 43px 100px;
+ }
+
+ .bg_slider3 {
+   width: 100vw;
+   height: calc(100% / 3);
+   background-size: cover;
+   background-position: center;
+   justify-content: center;
+   padding: 33px 50px 33px 50px;
+ }
+
+ .top_title {
+   font-weight: 700;
+   font-size: 70px;
+   letter-spacing: 0.05em;
+   color: #fff;
+   font-weight: bold;
+   text-shadow: 1px 5px 5px #000;
+ }
+
+ .top_text1 {
+   text-align: left;
+   font-weight: bold;
+   font-size: 20px;
+   color: #fff;
+   text-shadow: 1px 1px 1px #000;
+ }
+
+ .top_text2 {
+   text-align: right;
+   font-weight: bold;
+   font-size: 20px;
+   color: #fff;
+   text-shadow: 1px 1px 1px #000;
+ }
+
+ /* topページ aboutボタン */
+
+ a.btn_hex {
+   text-decoration: none;
+   color: #fff;
+ }
+
+ .btn_hex {
+   font-size: 14px;
+   line-height: 40px;
+   position: relative;
+   display: inline-block;
+   width: 100px;
+   height: 42px;
+   transition: all .1s ease-in-out;
+   text-align: center;
+   background-color: red;
+   margin-right: 500px;
+ }
+
+ .btn_hex:before, .btn_hex:after {
+   position: absolute;
+   top: 0;
+   width: 0;
+   height: 0;
+   content: '';
+   border: 21px solid transparent;
+   border-right: 12px solid transparent;
+   border-left: 12px solid transparent;
+ }
+
+ .btn_hex:before {
+   right: 100%;
+   border-right-color: red;
+ }
+
+ .btn_hex:after {
+   left: 100%;
+   border-left-color: red;
+ }
+
+ .btn_hex:hover {
+   opacity: .7;
+ }
+
+ /* topページ loginボタン */
+
+ a.btn--orange.btn--cubic {
+   color: white;
+   text-decoration: none;
+   background-color: orange;
+   border-bottom: 5px solid #CC6600;
+   padding: 10px 40px 10px 40px;
+ }
+
+ a.btn--orange.btn--cubic:hover {
+   margin-top: 3px;
+   border-bottom: 2px solid #CC6600;
+ }
+
+ a.btn--radius {
+   border-radius: 100vh;
+ }
+
+ /* topページ signupボタン */
+
+ a.btn--blue.btn--cubic {
+   color: white;
+   text-decoration: none;
+   background-color: blue;
+   border-bottom: 5px solid #003366;
+   padding: 10px 35px 10px 35px;
+ }
+
+ a.btn--blue.btn--cubic:hover {
+   margin-top: 3px;
+   border-bottom: 2px solid #003366;
+ }
+
+ a.btn--radius {
+   border-radius: 100vh;
+ }
+
  .container_cover {
    height: 100%;
    background: linear-gradient(#2CD8D5 0%, #C5C1FF 56%, #FFBAC3 100%);
@@ -32,24 +167,6 @@
    height: 100%;
    padding: 20px 0 20px 0;
    background: linear-gradient(#2CD8D5 0%, #C5C1FF 56%, #FFBAC3 100%);
- }
-
- .top_title {
-   font-weight: 700;
-   font-size: 70px;
-   letter-spacing: 0.05em;
- }
-
- .top_text1 {
-   text-align: left;
-   font-weight: bold;
-   font-size: 20px;
- }
-
- .top_text2 {
-   text-align: right;
-   font-weight: bold;
-   font-size: 20px;
  }
 
  .content_border {
