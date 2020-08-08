@@ -1,29 +1,90 @@
 <div align="center">
+  <%= form_with(url: search_public_songs_path, local: true, method: :get, class: "search-form") do |form| %>
+    <%= form.text_field :keyword, placeholder: "楽曲を検索する", class: "search-input" %>
+    <%= form.submit "検索", class: "search-btn" %>
+  <% end %>
+  <div class="content2s">
+    <div class="row"></div>
+  </div>
+  <br>
 
-  <h3>楽曲一覧</h3>
+  <div class="content_border">
+    <h3 class="ranking_label"><span>Best SONG Ranking</span></h3>
+      <% lastFavorite2 = 0 %>
+      <% j = 1 %>
+      <% @all_ranks.each.with_index(1) do |song, i| %>
+      <div class="flex">
+        <div class="artist_box">
+          <% if i == 1 %>
+            <% lastFavorite2 = song.favorite2s.count %>
+          <% end %>
+          <% if song.favorite2s.count != lastFavorite2 %>
+            <% j = i %>
+            <div class="shadow_box">          
+              <%= image_tag song.image_id.to_s %>
+            </div>
+            <br>
+            <br>
+            <% if j == 1 %>
+              <span class="best1_label">BEST <%= j %></span>
+            <% elsif j == 2 %>
+              <span class="best2_label">BEST <%= j %></span>
+            <% else %>
+              <span class="best3_label">BEST <%= j %></span>
+            <% end %>
+            <br>
+            <br>
+            <strong><%= link_to song.name, public_song_path(song.id) %></strong>
+            <br>
+            お気に入り数：<%= song.favorite2s.count %>
+            <% lastFavorite2 = song.favorite2s.count %>
+          <% else %>
+            <% lastFavorite2 = song.favorite2s.count %> 
+            <div class="shadow_box">         
+              <%= image_tag song.image_id.to_s %>
+            </div>           
+            <br>
+            <br>
+            <% if j == 1 %>
+              <span class="best1_label">BEST <%= j %></span>
+            <% elsif j == 2 %>
+              <span class="best2_label">BEST <%= j %></span>
+            <% else %>
+              <span class="best3_label">BEST <%= j %></span>
+            <% end %>
+            <br>
+            <br>
+            <strong><%= link_to song.name, public_song_path(song.id) %></strong>
+            <br>
+            お気に入り数：<%= song.favorite2s.count %>
+          <% end %>
+          <br>
+        </div>
+      </div>
+      <% end %>
 
-<%= form_with(url: search_public_songs_path, local: true, method: :get, class: "search-form") do |form| %>
-  <%= form.text_field :keyword, placeholder: "楽曲を検索する", class: "search-input" %>
-  <%= form.submit "検索", class: "search-btn" %>
-<% end %>
-<div class="contents">
-  <div class="row"></div>
-</div>
-
-  <% @songs.each do |song| %>
-  <% if song.is_active == true %>
-    <div class="flex">
-	  <div class="artist_box">
-	  	<div class="shadow_box">
-		  <%= image_tag song.image_id.to_s %>
-		</div>
-		<br>
-		<%= song.name %>
-		<br>
-		<a href="/public/songs/<%= song.id %>" class="btn btn-gradient"><span>VIEW MORE</span></a>
-	  </div>
+    <div class="ribbon_wrapper">
+      <div class="ribbon_content">
+      <span class="ribbon">NEW</span>
+      </div>
+      <strong>New SONG</strong><p>注目の新着楽曲</p>
+      <div id="new_songs">
+        <%= render :partial => "new_songs" %>
+      </div>
     </div>
-  <% end %>
-  <% end %>
+    <br>
+    <br>
 
+    <h3 class="artist_list_label">
+      <i class="fas fa-star fa_small"></i>
+      <i class="fas fa-star fa_small"></i>
+      <i class="fas fa-star fa_small"></i>
+      &nbsp; SONG List &nbsp;
+      <i class="fas fa-star fa_small"></i>
+      <i class="fas fa-star fa_small"></i>
+      <i class="fas fa-star fa_small"></i>
+    </h3>
+    <div id="songs">
+      <%= render :partial => "songs" %>
+    </div>
 </div>

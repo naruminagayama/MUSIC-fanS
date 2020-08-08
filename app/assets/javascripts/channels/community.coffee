@@ -5,16 +5,15 @@ App.community = App.cable.subscriptions.create "CommunityChannel",
   disconnected: ->
     # Called when the subscription has been terminated by the server
 
-
   received: (data) ->
-    $("#chats").append(data["message"])
-    # Called when there's incoming data on the websocket for this channel
+    # console.log(data)
+    $('#chats').append(data["message"])
 
   speak: (message) ->
     @perform 'speak', message: message
 
-$(document).on 'keypress', "#message", (event) ->
+$(document).on 'keypress', '#chat', (event) ->
   if event.keyCode is 13
-    App.community.speak(event.target.value)
+    App.community.speak event.target.value
     event.target.value = ''
     event.preventDefault()

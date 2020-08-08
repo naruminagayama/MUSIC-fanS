@@ -23,6 +23,12 @@
  @import "font-awesome-sprockets";
  @import "font-awesome";
 
+ .bg_slider {
+   width: 100%;
+   height: 100%;
+   background-color: rgba(0, 0, 0, 0.2);
+  }
+
  .bg_slider1 {
    width: 100vw;
    height: calc(100% / 3);
@@ -459,7 +465,6 @@
    background-image: -webkit-gradient(linear, left top, right top, from(#fa709a), to(#fee140));
    background-image: -webkit-linear-gradient(left, #fa709a 0%, #fee140 100%);
    background-image: linear-gradient(to right, #fa709a 0%, #fee140 100%);
-   -webkit-box-shadow: 0 5px 10px rgba(0, 0, 0, .1);
    box-shadow: 0 8px 15px rgba(0, 0, 0, .2);
  }
 
@@ -503,10 +508,33 @@
    display: block;
  }
 
+/* 楽曲詳細 楽曲名見出し */
+
+ label.btn_songname {
+   color: #fff;
+   border: 2px solid #fff;
+   border-radius: 0;
+   background-image: -webkit-gradient(linear, left top, right top, from(#2af598), to(#009efd));
+   background-image: -webkit-linear-gradient(left, #2af598 0%, #009efd 100%);
+   background-image: linear-gradient(90deg, #2af598 0%, #009efd 100%);
+   box-shadow: 0 8px 15px rgba(0, 0, 0, .2);
+ }
+
  /* 詳細コメント padding */
 
  .detail_space {
    padding: 0 50px 0 50px;
+ }
+
+ /* アーティスト詳細ページへのリンクボタン */
+
+ a.btn_detail {
+   font-weight: normal;
+   border-radius: 100vh;
+   color: #fff;
+   background-image: linear-gradient(90deg, #ff3cac 40%, #562b7c 100%);
+   text-decoration: none;
+   padding: 10px 20px 10px 20px;
  }
 
  .blog_headline {
@@ -611,17 +639,31 @@
  /* pagination デザイン */
 
  .pagination>li>a {          
-  border: none;     /*枠線をなくす*/
-  color: #696969;   /*文字の色を変える*/
-}
+   border: none;   
+   color: #696969;  
+ }
 
-/* 表示しているページ番号のデザイン */
-.pagination>.active>a {     
-  background: #93c9ff;     /*背景の色を変える*/
-  border-radius: 15px;     /*角を丸くする*/
-}
+ .pagination>.active>a {     
+   background: #93c9ff;    
+   border-radius: 15px;    
+ }
 
-/*ホバー時のデザイン*/
-.pagination>li>a:hover {        
-  border-radius: 15px;    /*角を丸くする*/
-}
+ .pagination>li>a:hover {        
+   border-radius: 15px;    
+ }
+
+ .pagination {
+margin-right: 150px;
+ }
+
+ .mypage_headline {
+   width: 80%;
+   padding: 0.5rem 1rem;
+   color: #fff;
+   background-color: gray;
+   box-shadow: 5px 5px 0 silver;
+ }
+
+ .mypage_content {
+   margin: 5px 0 15px 10px;
+ }

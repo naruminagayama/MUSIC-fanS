@@ -8,7 +8,7 @@ $(function() {
       dataType: 'json'
     })
      .done(function(songs) {
-     $(".contents").empty();
+     $(".content2s").empty();
  
       if (songs.length !== 0) {         //musicの数が0でない時
         songs.forEach(function(song){ //forEachメソッド
@@ -25,11 +25,28 @@ $(function() {
   });
 });
 
-  var search_list = $(".contents.row");
+  var search_list = $(".content2s.row");
   function appendSong(song) {
-    var html = `<div><span style="font-size: 100px; color: red;">${song.name}</span></div>`
-    $(".contents").append(html);
+
+    var html = `
+      <div style="padding: 15px; margin: 15px 0 0 0; background: linear-gradient(90deg, rgba(22, 135, 237, 0.6), rgba(20, 55, 90, 0.9));">
+        <div class="flex">
+          <div><img src="${song.image_id}"></div>
+          <div>
+            <span style="font-size: 30px;">
+              <a href="/public/songs/${song.id}" style="color: gold; text-decoration: none;">${song.name}</a>
+              (${song.sale_year})
+            </span>
+            <br><br>
+            <span style="color: white;">${song.detail}</span>
+          </div>
+        </div>
+      </div>
+    `
+
+    $(".content2s").append(html);
   }
+
   function appendErrMsgToHTML(msg) {
     var html = `<div class='name'>${ msg }</div>`
     search_list.append(html);

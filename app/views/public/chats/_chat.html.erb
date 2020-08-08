@@ -1,3 +1,5 @@
 <div class="chat">
-  <p><%= chat.message %></p>
+  <!-- <p><%#= chat.message %></p> -->
+  <%# byebug %>
+  <p><%= "#{chat.customer.nickname}: #{chat.message}" %></p>
 </div>

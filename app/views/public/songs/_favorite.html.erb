@@ -1,0 +1,9 @@
+<% if song.favorited_by?(current_customer) %>
+  <%= link_to public_song_favorite2s_path(song), method: :delete, remote: true do %>
+    ❤︎<%= song.favorite2s.count %>
+  <% end %>
+  <% else %>
+    <%= link_to public_song_favorite2s_path(song), method: :post, remote: true do %>
+      ♡<%= song.favorite2s.count %>
+  <% end %>
+<% end %>

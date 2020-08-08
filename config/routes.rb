@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  mount ActionCable.server => '/cable'
   get 'favorites/controller'
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
@@ -26,7 +27,7 @@ Rails.application.routes.draw do
       collection do
         get 'search'
       end
-      resource :favorites, only: [:create, :destroy]
+      resource :favorite2s, only: [:create, :destroy]
     end
   	resources :communities, only: [:index, :show]
     resources :blogs, except: [:new, :show]

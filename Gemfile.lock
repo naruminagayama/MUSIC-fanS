@@ -336,6 +336,7 @@ DEPENDENCIES
   carrierwave
   chromedriver-helper
   coffee-rails (~> 4.2)
+  coffee-script-source
   devise
   dotenv-rails
   font-awesome-sass (~> 5.13.0)

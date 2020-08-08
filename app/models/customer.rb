@@ -7,6 +7,7 @@ class Customer < ApplicationRecord
 
   has_many :chats
   has_many :favorites, dependent: :destroy
+  has_many :favorite2s, dependent: :destroy
   has_many :follower, class_name: "Relationship", foreign_key: "follower_id", dependent: :destroy # フォロー取得
   has_many :followed, class_name: "Relationship", foreign_key: "followed_id", dependent: :destroy # フォロワー取得
   has_many :following_customer, through: :follower, source: :followed # 自分がフォローしている人
@@ -25,6 +26,10 @@ class Customer < ApplicationRecord
   # フォローしていればtrueを返す
   def following?(customer)
     following_customer.include?(customer)
+  end
+
+  def remember_me
+    true
   end
 
   mount_uploader :image_id, ImagesUploader

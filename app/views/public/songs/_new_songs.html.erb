@@ -1,0 +1,13 @@
+<% @new_songs.each.with_index(1) do |song, i| %>
+<div class="flex">
+  <div class="new_artist_box">
+    <div class="new_shadow_box">
+      <%= image_tag song.image_id.to_s, :size => "150x150" %>
+    </div>
+    <br>
+    <p class="new_artist_name"><%= link_to song.name, public_song_path(song.id) %></p>
+  </div>
+</div>
+<% end %>
+<br>
+<%= paginate @new_songs, remote: true %>
