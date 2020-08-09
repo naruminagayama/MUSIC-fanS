@@ -1,4 +1,4 @@
-App.community = App.cable.subscriptions.create "CommunityChannel",
+App.community = App.cable.subscriptions.create { channel: "CommunityChannel", room: location.pathname.match(/\d+/)[0] },
   connected: ->
     # Called when the subscription is ready for use on the server
 
@@ -6,7 +6,6 @@ App.community = App.cable.subscriptions.create "CommunityChannel",
     # Called when the subscription has been terminated by the server
 
   received: (data) ->
-    # console.log(data)
     $('#chats').append(data["message"])
 
   speak: (message) ->

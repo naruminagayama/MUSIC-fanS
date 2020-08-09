@@ -1,5 +1,14 @@
-<% @communities.each do |community| %>
-  <div>
-    <%= link_to community.name, public_community_path(community) %>
+<div align="center">
+  <div class="content_border">
+    <h3>Community List</h3>
+    <br>
+      <div class="flex">
+	    <% @communities.each do |community| %>
+	      <div>
+	        <a href="/public/communities/<%= community.id %>" class="btn btn_detail_square"><span><%= community.name %></span></a>&emsp;
+	      </div>
+	    <% end %>
+	    <br>
+    </div>
   </div>
-<% end %>
+</div>

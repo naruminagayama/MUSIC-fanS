@@ -537,6 +537,106 @@
    padding: 10px 20px 10px 20px;
  }
 
+ /* コミュニティ一覧 アーティスト名リンクボタン */
+
+ .btn_detail_square,a.btn_detail_square {
+   font-size: 1.3rem;
+   font-weight: 700;
+   line-height: 1.5;
+   position: relative;
+   display: inline-block;
+   padding: 0.5rem 2rem;
+   cursor: pointer;
+   -webkit-user-select: none;
+   -moz-user-select: none;
+   -ms-user-select: none;
+   user-select: none;
+   transition: all 0.3s;
+   text-align: center;
+   vertical-align: middle;
+   text-decoration: none;
+   letter-spacing: 0.1em;
+   color: #212529;
+   border-radius: 0.5rem;
+ }
+
+ a.btn_detail_square {
+   font-weight: normal;
+   color: #fff;
+   border-radius: 0;
+   background-image: linear-gradient(90deg, #ff3cac 40%, #562b7c 100%);
+ }
+
+ a.btn_detail_square:after {
+   position: absolute;
+   top: 0;
+   left: 0;
+   width: 100%;
+   height: 100%;
+   content: "";
+   transition: all 0.5s;
+   background-image: linear-gradient(90deg, #ff3cac, #562b7c, #2b86c5);
+ }
+
+ a.btn_detail_square span {
+   position: relative;
+   z-index: 1;
+ }
+
+ a.btn_detail_square:hover {
+   color: #fff;
+ }
+
+ a.btn_detail_square:hover:after {
+   opacity: 0;
+ }
+
+ /* chat message 吹き出し */
+
+ .chat_message {
+   position: relative;
+   padding: 1rem 1rem;
+   border: 3px solid #d8d8d8;
+   border-radius: 10px;
+   background: #f9f9f9;
+ }
+
+ .chat_message:before {
+   position: absolute;
+   bottom: -14px;
+   left: 1.5em;
+   width: 0;
+   height: 0;
+   content: '';
+   border-width: 14px 12px 0 12px;
+   border-style: solid;
+   border-color: #d8d8d8 transparent transparent transparent;
+ }
+
+ .chat_message:after {
+   position: absolute;
+   bottom: -10px;
+   left: 1.5em;
+   width: 0;
+   height: 0;
+   content: '';
+   border-width: 14px 12px 0 12px;
+   border-style: solid;
+   border-color: #f9f9f9 transparent transparent transparent;
+ }
+
+ /* chat message ユーザ情報 */
+
+ .chat_customer {
+   padding: 25px 0 0 10px;
+ }
+
+ .chat_customer a {
+   padding: 25px 0 0 10px;
+   color: #777777;
+   text-decoration: none;
+ }
+
  .blog_headline {
    padding: 1rem 2rem;
    color: #fff;
