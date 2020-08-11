@@ -40,8 +40,8 @@
           &emsp;<%= link_to "Favorite Song", public_favoritesong_path(@customer.id), class: "mypage_link" %>&nbsp;
         <br>
         <br>
-        <%= link_to image_tag("heart.png"), "/" %>
-          &emsp;<%= link_to "Help", "/", class: "mypage_link" %>
+        <%= link_to image_tag("heart.png"), homes_about_path %>
+          &emsp;<%= link_to "Help", homes_about_path, class: "mypage_link" %>
           &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
       </div>
     </div>

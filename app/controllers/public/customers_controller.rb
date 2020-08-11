@@ -1,5 +1,7 @@
 class Public::CustomersController < ApplicationController
 
+  before_action :authenticate_customer!
+
   def show
   	@customer = Customer.find(params[:id])
   end
@@ -30,6 +32,13 @@ class Public::CustomersController < ApplicationController
 
   def favoritesong
     @customer = Customer.find(params[:id])
+  end
+
+  def blogs
+    @customer = Customer.find(params[:id])
+    @blogs = Blog.where(customer_id: customer.id)
+                 .order("created_at DESC")
+                 .page(params[:page]).per(2)
   end
 
   private
