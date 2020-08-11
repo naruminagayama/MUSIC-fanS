@@ -6,8 +6,14 @@ App.community = App.cable.subscriptions.create { channel: "CommunityChannel", ro
     # Called when the subscription has been terminated by the server
 
   received: (data) ->
-  # console.log('aaaaaaaaaaaaaaa')
+    e = document.getElementById 'chats'
+    current_customer = e.dataset.current_customer_id
+    publisher = data['publisher']   
     $('#chats').append(data["message"])
+
+    if publisher isnt current_customer
+      lastChild = $('#chats')[0].lastElementChild
+      lastChild.children[0].className = 'is_left'
 
   speak: (message) ->
     @perform 'speak', message: message
@@ -17,5 +23,3 @@ $(document).on 'keypress', '#chat', (event) ->
     App.community.speak event.target.value
     event.target.value = ''
     event.preventDefault()
-    e = document.getElementById('chats')
-    console.log(e.dataset.current_customer_id)

@@ -1,15 +1,22 @@
 class MessageBroadcastJob < ApplicationJob
   queue_as :default
-
-  def perform(chat)
+  
+  def perform(chat, current_customer_id)
     # Do something later
-    ActionCable.server.broadcast "community_channel_#{chat.community_id}", message: render_message(chat)
+    ActionCable.server.broadcast(
+      "community_channel_#{chat.community_id}",
+      message: render_message(chat, current_customer_id),
+      publisher: chat.customer.id.to_s
+    )
   end
 
   private
 
-    def render_message(chat)
-      div_class = chat.customer.id == chat.current_customer_id ? 'chat_right' : 'chat_left'
-      ApplicationController.renderer.render partial: 'public/chats/chat', locals: { chat: chat, div_class: div_class }
-    end
+  def render_message(chat, current_customer_id)
+    current_customer = Customer.find(current_customer_id)
+    ApplicationController.renderer.render(
+      partial: 'public/chats/chat',
+      locals: { chat: chat, current_customer: current_customer }
+    )
+  end
 end

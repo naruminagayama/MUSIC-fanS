@@ -1,35 +1,17 @@
 <div class="chat">
-  <%# if chat.customer == current_customer %>
-    <!-- <div class="chat_right"> -->
-    <% div_class = chat.customer.id == current_customer.id ? 'chat_right' : 'chat_left' %>
-    <div class="<%= div_class %>">
-      <p class="chat_message_right"><%= chat.message %></p>
-      <div class="flex">
-        <div>
-          <% if chat.customer.image_id? %>
-            <%= image_tag chat.customer.image_id.url, :size => '80x80', class: 'icon' %>
-          <% else %>
-            <%= image_tag "/assets/noimage.jpg", :size => '80x80', class: 'icon' %>
-          <% end %>
-        </div>
-        <div class="chat_customer"><%= link_to chat.customer.nickname, public_customer_path(chat.customer.id) %></div>
+  <% div_class = chat.customer.id == current_customer.id.presence ? 'is_right' : 'is_left' %>
+  <div class="<%= div_class %>">
+    <p class="chat_message"><%= chat.message %></p>
+    <div class="flex">
+      <div>
+        <% if chat.customer.image_id? %>
+          <%= image_tag chat.customer.image_id.url, :size => '80x80', class: 'icon' %>
+        <% else %>
+          <%= image_tag "/assets/noimage.jpg", :size => '80x80', class: 'icon' %>
+        <% end %>
       </div>
+      <div class="chat_customer"><%= link_to chat.customer.nickname, public_customer_path(chat.customer.id) %></div>
     </div>
-
-  <%# else %>
-    <!-- <div class="chat_left"> -->
-      <!-- <p class="chat_message_left"><%#= chat.message %></p> -->
-      <!-- <div class="flex"> -->
-        <!-- <div> -->
-          <%# if chat.customer.image_id? %>
-            <%#= image_tag chat.customer.image_id.url, :size => '80x80', class: 'icon' %>
-          <%# else %>
-            <%#= image_tag "/assets/noimage.jpg", :size => '80x80', class: 'icon' %>
-          <%# end %>
-        <!-- </div> -->
-        <!-- <div class="chat_customer"><%#= link_to chat.customer.nickname, public_customer_path(chat.customer.id) %></div> -->
-      <!-- </div> -->
-    <!-- </div> -->
-  <%# end %>
+  </div>
 </div>
 <br>
