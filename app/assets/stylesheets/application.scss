@@ -176,16 +176,16 @@
 
  /* aboutページ background */
 
- .holder, .first, .second, .third {
+ .holder, .first_gradation, .second_gradation, .third_gradation {
    height: 180vh;
    width: 100vw;
  }
 
- .first, .second, .third {
+ .first_gradation, .second_gradation, .third_gradation {
    position: absolute;
  }
 
- .second, .third {
+ .second_gradation, .third_gradation {
    opacity: 0;
  }
 
@@ -195,13 +195,13 @@
    z-index: 1;
  }
 
- .first {
+ .first_gradation {
    animation: first 10s infinite;
    background: linear-gradient(#5ff8ca, #60e08c);
    z-index: 10;
  }
 
- @keyframes first {
+ @keyframes first_gradation {
    0% {opacity: 1.0;}
    10% {opacity: 0.8;}
    20% {opacity: 0.6;}
@@ -215,13 +215,13 @@
    100% {opacity: 1.0;}
  }
 
- .second {
+ .second_gradation {
    animation: second 10s infinite; animation-delay: 2s;
    background: linear-gradient(#19eaa6, #00a1f0);
    z-index: 20;
  }
 
- @keyframes second {
+ @keyframes second_gradation {
    0% {opacity: 0;}
    10% {opacity: 0.2;}
    20% {opacity: 0.4;}
@@ -235,14 +235,14 @@
    100% {opacity: 0;}
  }
 
- .third {
+ .third_gradation {
    animation: third 10s infinite;
    animation-delay: 8s;
    background: linear-gradient(#aab7f8, #ff75c6);
    z-index: 30;
  }
 
- @keyframes third {
+ @keyframes third_gradation {
    0% {opacity: 0;}
    10% {opacity: 0.2;}
    20% {opacity: 0.4;}
@@ -809,7 +809,7 @@
 
  /* chat message 吹き出し右側 */
 
- .chat_message_right {
+ .is_right p {
    position: relative;
    padding: 1rem 1rem;
    border: 3px solid #d8d8d8;
@@ -817,7 +817,7 @@
    background: #f9f9f9;
  }
 
- .chat_message_right:before {
+ .is_right p:before {
    position: absolute;
    bottom: -14px;
    right: 1.5em;
@@ -829,7 +829,7 @@
    border-color: #d8d8d8 transparent transparent transparent;
  }
 
- .chat_message_right:after {
+ .is_right p:after {
    position: absolute;
    bottom: -10px;
    right: 1.5em;
@@ -843,7 +843,7 @@
 
  /* chat message 吹き出し左側 */
 
- .chat_message_left {
+ .is_left p {
    position: relative;
    padding: 1rem 1rem;
    border: 3px solid #d8d8d8;
@@ -851,7 +851,7 @@
    background: #f9f9f9;
  }
 
- .chat_message_left:before {
+ .is_left p:before {
    position: absolute;
    bottom: -14px;
    left: 1.5em;
@@ -863,7 +863,7 @@
    border-color: #d8d8d8 transparent transparent transparent;
  }
 
- .chat_message_left:after {
+ .is_left p:after {
    position: absolute;
    bottom: -10px;
    left: 1.5em;
@@ -887,13 +887,13 @@
    text-decoration: none;
  }
 
- .chat_right {
+ .is_right {
    width: 40%;
    margin: 0 0 0 auto;
    text-align: right;
  }
 
- .chat_left {
+ .is_left {
    width: 40%;
    position: left;
  }
