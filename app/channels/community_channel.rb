@@ -7,11 +7,8 @@ class CommunityChannel < ApplicationCable::Channel
   def unsubscribed
     # Any cleanup needed when channel is unsubscribed
   end
-
+  
   def speak(data)
-    # ActionCable.server.broadcast 'community_channel', message: data['message']
-    #Chat.create(message: data["chat"], customer_id: current_customer.id, community: Community.find(params['community_id']))                                  
-    Chat.create!(message: data["message"], customer_id: current_customer.id, community_id: params['room'])
+    Chat.created_via_speak(data, params, current_customer.id)
   end
 end
-

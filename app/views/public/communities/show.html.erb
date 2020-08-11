@@ -7,9 +7,11 @@
   </h6>
 </div>
   <br>
-    <div id="chats" data-community_id="<%= @community.id %>">
+    <div id="chats" data-community_id="<%= @community.id %>" data-current_customer_id="<%= current_customer.id.to_i %>">
       <%= render @chats %>
     </div>
+    <div class="bottom-item">
     <%= paginate @chats %>
     <%= image_tag "write.png" %>
     <%= text_field_tag :chat %>
+    </div>
