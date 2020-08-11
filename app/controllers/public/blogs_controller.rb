@@ -3,7 +3,9 @@ class Public::BlogsController < ApplicationController
   def index
   	@customer = current_customer
   	@blog = Blog.new
-  	@blogs = Blog.order("created_at DESC").page(params[:page]).per(2)
+  	@blogs = Blog.where(customer_id: current_customer.id)
+                 .order("created_at DESC")
+                 .page(params[:page]).per(2)
   end
 
   def create

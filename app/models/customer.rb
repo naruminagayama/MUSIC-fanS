@@ -5,6 +5,7 @@ class Customer < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+  has_many :blogs
   has_many :chats
   has_many :favorites, dependent: :destroy
   has_many :favorite_artists, through: :favorites, source: :artist
