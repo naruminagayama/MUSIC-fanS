@@ -3,11 +3,11 @@
     <h3>Community List</h3>
     <br>
       <div class="flex">
-	    <% @communities.each do |community| %>
-	      <div>
+      	<div class="community_list">
+	      <% @communities.each do |community| %>	     
 	        <a href="/public/communities/<%= community.id %>" class="btn btn_detail_square"><span><%= community.name %></span></a>&emsp;
-	      </div>
-	    <% end %>
+	      <% end %>
+	    </div>
 	    <br>
     </div>
   </div>

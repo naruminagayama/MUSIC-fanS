@@ -24,8 +24,8 @@
     <div class="content_border">
       <% @blogs.each do |blog| %>
       <div class="blog_<%= blog.id %>">
-        <% if @customer.image_id? %>
         <div class="flex_blog">
+        <% if @customer.image_id? %>
           <%= image_tag @customer.image_id.url, :size => '70x70', class: 'icon' %>
         <% else %>
           <%= image_tag "/assets/noimage.jpg", :size => '70x70', class: 'icon' %>
@@ -50,8 +50,9 @@
       <br><br>
       <% end %>
       <%= paginate @blogs %>
+
       <div class="calendar_size">
-        <%= month_calendar events: @blogs do |date, blogs| %>
+        <%= month_calendar events: @blogs do |date, blogs| %>       
           <%= date.day %>
           <% blogs.each do |blog| %>
             <div>

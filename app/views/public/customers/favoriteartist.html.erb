@@ -20,29 +20,22 @@
         <% if current_customer.following?(@customer) %>
           <%= link_to 'フォロー外す', public_unfollow_path(@customer.id), method: :post, class: 'btn_follow', :style => "color: white;" "text-decoration: none;" %>
         <% else %>
-          <%= link_to 'フォローする', public_follow_path(@customer.id), method: :post, class: 'btn_follow', :style => "color: white;" "text-decoration: none;" %>
+          <%= link_to 'フォローする', public_follow_path(@customer.id), method: :post, class: 'btn_follow', :style => :style => "color: white;" "text-decoration: none;" %>
         <% end %>
       <% end %>
-      <% if @customer == current_customer %>
-        <%= link_to '変更', edit_public_customer_path(current_customer), class: 'btn_blogedit', :style => "color: white;" "text-decoration: none;" %>
-      <% end %>
+      <%= link_to '変更', edit_public_customer_path(current_customer), class: 'btn_blogedit', :style => "color: white;" "text-decoration: none;" %>
     </div>
   </div>
 
   <div class="main col-md-9 mypage_main">
-    <div class="content_border mypage_linkwhole">
+    <div class="content_border">
       <div align="center">
-        <%= link_to image_tag("heart.png"), public_favoriteartist_path(@customer.id) %>
-          &emsp;<%= link_to "Favorite Artist", public_favoriteartist_path(@customer.id), class: "mypage_link" %>
-        <br>
-        <br>
-        <%= link_to image_tag("heart.png"), public_favoritesong_path(@customer.id) %>
-          &emsp;<%= link_to "Favorite Song", public_favoritesong_path(@customer.id), class: "mypage_link" %>&nbsp;
-        <br>
-        <br>
-        <%= link_to image_tag("heart.png"), "/" %>
-          &emsp;<%= link_to "Help", "/", class: "mypage_link" %>
-          &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+      	<h3>Favorite Artist</h3>
+      	<br>
+       	<% @customer.favorite_artists.each do |artist| %>
+          <%= link_to artist.name, public_artist_path(artist), class: "btn_favorite_name" %>
+          <br>
+        <% end %>
       </div>
     </div>
   </div>

@@ -23,6 +23,9 @@
  @import "font-awesome-sprockets";
  @import "font-awesome";
 
+ @import url(https://fonts.googleapis.com/css?family=Chewy);
+ @import url(https://fonts.googleapis.com/css?family=Bitter);
+
  .bg_slider {
    width: 100%;
    height: 100%;
@@ -162,6 +165,169 @@
 
  a.btn--radius {
    border-radius: 100vh;
+ }
+
+ /* aboutページ padding */
+
+ .container_about {
+   padding: 30px 50px 50px 50px;
+   position: relative;
+ }
+
+ /* aboutページ background */
+
+ .holder, .first, .second, .third {
+   height: 180vh;
+   width: 100vw;
+ }
+
+ .first, .second, .third {
+   position: absolute;
+ }
+
+ .second, .third {
+   opacity: 0;
+ }
+
+ .holder {
+   height: 100vh;
+   position: relative;
+   z-index: 1;
+ }
+
+ .first {
+   animation: first 10s infinite;
+   background: linear-gradient(#5ff8ca, #60e08c);
+   z-index: 10;
+ }
+
+ @keyframes first {
+   0% {opacity: 1.0;}
+   10% {opacity: 0.8;}
+   20% {opacity: 0.6;}
+   30% {opacity: 0.4;}
+   40% {opacity: 0.2;}
+   50% {opacity: 0.1;}
+   60% {opacity: 0.2;}
+   70% {opacity: 0.4;}
+   80% {opacity: 0.6;}
+   90% {opacity: 0.8;}
+   100% {opacity: 1.0;}
+ }
+
+ .second {
+   animation: second 10s infinite; animation-delay: 2s;
+   background: linear-gradient(#19eaa6, #00a1f0);
+   z-index: 20;
+ }
+
+ @keyframes second {
+   0% {opacity: 0;}
+   10% {opacity: 0.2;}
+   20% {opacity: 0.4;}
+   30% {opacity: 0.6;}
+   40% {opacity: 0.8;}
+   50% {opacity: 1.0;}
+   60% {opacity: 0.8;}
+   70% {opacity: 0.6;}
+   80% {opacity: 0.4;}
+   90% {opacity: 0.2;}
+   100% {opacity: 0;}
+ }
+
+ .third {
+   animation: third 10s infinite;
+   animation-delay: 8s;
+   background: linear-gradient(#aab7f8, #ff75c6);
+   z-index: 30;
+ }
+
+ @keyframes third {
+   0% {opacity: 0;}
+   10% {opacity: 0.2;}
+   20% {opacity: 0.4;}
+   30% {opacity: 0.6;}
+   40% {opacity: 0.8;}
+   50% {opacity: 1.0;}
+   60% {opacity: 0.8;}
+   70% {opacity: 0.6;}
+   80% {opacity: 0.4;}
+   90% {opacity: 0.2;}
+   100% {opacity: 0;}
+ }
+
+ .abouttop {
+   color: #222222;
+   margin-top: 120px;
+   position: absolute;
+   left: 38%;
+   z-index: 1000;
+ }
+
+ .abouttop2 {
+   color: #222222;
+   margin-top: 120px;
+   position: absolute;
+   left: 42%;
+   z-index: 1000;
+ }
+
+ .about1_content {
+   margin: 230px 0 0 70px;
+ }
+
+ .about2_content {
+   margin: 90px 0 0 95px;
+ }
+
+ .aboutimage {
+   z-index: 1000;
+ }
+
+ .heart {
+   font-size: 80px;
+   color: #FF3D67;
+   animation: heart-beats .3s infinite alternate;
+   transform-origin: center;
+   font-family: 'Chewy', cursive;
+   margin-top: 0;
+   color: #FF9EB6;
+   position: absolute;
+   left: 50%;
+   z-index: 1000;
+ }
+
+ /* about heart アニメーション設定 */
+
+ @keyframes heart-beats {
+   to { transform: scale(1.1); }
+ }
+
+ /* aboutページ テキスト */
+
+ .about1 {
+   color: #555555;
+   padding: 50px 20px 20px 40px;
+   line-height: 1.8em;
+   z-index: 1000;
+ }
+
+ .about2 {
+   color: #555555;
+   padding: 50px 20px 20px 40px;
+   line-height: 1.8em;
+   z-index: 1000;
+ }
+
+ .aboutlink {
+   position: relative;
+ }
+
+ .aboutlink_contents {
+   position: absolite;
+   z-index: 1000;
+   margin-left: 485px;
+   margin-top: 180px;
  }
 
  .container_cover {
@@ -528,14 +694,63 @@
 
  /* アーティスト詳細ページへのリンクボタン */
 
+ .btn_detail,a.btn_detail {
+   font-size: 1.3rem;
+   font-weight: 700;
+   line-height: 1.5;
+   position: relative;
+   display: inline-block;
+   padding: 0.5rem 2rem;
+   cursor: pointer;
+   -webkit-user-select: none;
+   -moz-user-select: none;
+   -ms-user-select: none;
+   user-select: none;
+   transition: all 0.3s;
+   text-align: center;
+   vertical-align: middle;
+   text-decoration: none;
+   letter-spacing: 0.1em;
+   color: #212529;
+   border-radius: 100vh;
+ }
+
  a.btn_detail {
    font-weight: normal;
-   border-radius: 100vh;
    color: #fff;
+   border-radius: 100vh;
    background-image: linear-gradient(90deg, #ff3cac 40%, #562b7c 100%);
-   text-decoration: none;
-   padding: 10px 20px 10px 20px;
+
  }
+
+ a.btn_detail:after {
+   position: absolute;
+   top: 0;
+   left: 0;
+   width: 100%;
+   height: 100%;
+   content: "";
+   transition: all 0.5s;
+   background-image: linear-gradient(90deg, #ff3cac, #562b7c, #2b86c5);
+   border-radius: 100vh;
+ }
+
+ a.btn_detail span {
+   position: relative;
+   z-index: 1;
+ }
+
+ a.btn_detail:hover {
+   color: #fff;
+ }
+
+ a.btn_detail:hover:after {
+   opacity: 0;
+ }
+
+ .flex .community_list {
+   box-sizing: border-box;
+  }
 
  /* コミュニティ一覧 アーティスト名リンクボタン */
 
@@ -558,6 +773,7 @@
    letter-spacing: 0.1em;
    color: #212529;
    border-radius: 0.5rem;
+   margin-bottom: 15px;
  }
 
  a.btn_detail_square {
@@ -591,9 +807,9 @@
    opacity: 0;
  }
 
- /* chat message 吹き出し */
+ /* chat message 吹き出し右側 */
 
- .chat_message {
+ .chat_message_right {
    position: relative;
    padding: 1rem 1rem;
    border: 3px solid #d8d8d8;
@@ -601,7 +817,41 @@
    background: #f9f9f9;
  }
 
- .chat_message:before {
+ .chat_message_right:before {
+   position: absolute;
+   bottom: -14px;
+   right: 1.5em;
+   width: 0;
+   height: 0;
+   content: '';
+   border-width: 14px 12px 0 12px;
+   border-style: solid;
+   border-color: #d8d8d8 transparent transparent transparent;
+ }
+
+ .chat_message_right:after {
+   position: absolute;
+   bottom: -10px;
+   right: 1.5em;
+   width: 0;
+   height: 0;
+   content: '';
+   border-width: 14px 12px 0 12px;
+   border-style: solid;
+   border-color: #f9f9f9 transparent transparent transparent;
+ }
+
+ /* chat message 吹き出し左側 */
+
+ .chat_message_left {
+   position: relative;
+   padding: 1rem 1rem;
+   border: 3px solid #d8d8d8;
+   border-radius: 10px;
+   background: #f9f9f9;
+ }
+
+ .chat_message_left:before {
    position: absolute;
    bottom: -14px;
    left: 1.5em;
@@ -613,7 +863,7 @@
    border-color: #d8d8d8 transparent transparent transparent;
  }
 
- .chat_message:after {
+ .chat_message_left:after {
    position: absolute;
    bottom: -10px;
    left: 1.5em;
@@ -635,6 +885,17 @@
    padding: 25px 0 0 10px;
    color: #777777;
    text-decoration: none;
+ }
+
+ .chat_right {
+   width: 40%;
+   margin: 0 0 0 auto;
+   text-align: right;
+ }
+
+ .chat_left {
+   width: 40%;
+   position: left;
  }
 
  .blog_headline {
@@ -753,7 +1014,7 @@
  }
 
  .pagination {
-margin-right: 150px;
+   /* margin-right: 150px; */
  }
 
  .mypage_headline {
@@ -766,4 +1027,92 @@ margin-right: 150px;
 
  .mypage_content {
    margin: 5px 0 15px 10px;
+ }
+
+ .btn_follow {
+   display: inline-block;
+   max-width: 180px;
+   text-align: left;
+   background-color: #9966ff;
+   font-size: 16px;
+   color: #FFF;
+   text-decoration: none;
+   padding: 10px 24px;
+   margin: 14px;
+   border-radius: 4px;
+   border-bottom: 4px solid #663399;
+ }
+
+ .btn_follow:active {
+   transform: translateY(4px);
+   border-bottom: none;
+   color: #FFF;
+   text-decoration: none;
+ }
+
+ .mypage_main {
+   background: #fff;
+ }
+
+ .mypage_linkwhole{
+   width: 500px;
+   height: 350px;
+   position: relative;
+   background: #fff0cd;
+   box-shadow: 0px 0px 0px 5px #fff0cd;
+   border: dashed 2px white;
+   padding: 0.2em 0.5em;
+   color: #454545;
+   padding: 100px 0 195px 0;
+   top: 100px;
+   left: 170px;
+ }
+
+ .mypage_linkwhole:after{
+   position: absolute;
+   content: '';
+   right: -7px;
+   top: -7px;
+   border-width: 0 15px 15px 0;
+   border-style: solid;
+   border-color: #ffdb88 #fff #ffdb88;
+   box-shadow: -1px 1px 1px rgba(0, 0, 0, 0.15);
+ }
+
+ a.mypage_link {
+   color: #c69c6d;
+   font-weight: bold;
+   text-decoration: none;
+   font-size: 25px;
+ }
+
+ .btn_favorite_name {
+   position: relative;
+   display: inline-block;
+   font-size: 20px;
+   font-weight: bold;
+   padding: 0.2em 0;
+   margin-bottom: 0.2em;
+   text-decoration: none;
+   color: #67c5ff;  
+ }
+
+ .btn_favorite_name:before {
+   position: absolute;
+   content: '';
+   width: 100%;
+   height: 4px;
+   top:100%;
+   left: 0;
+   border-radius: 3px;
+   background:#67c5ff;
+   transition: .2s;
+ }
+
+ .btn_favorite_name:hover:before {
+   top: calc(100% - 3px);
+ }
+
+ a.btn_favorite_name {
+   text-decoration: none;
  }

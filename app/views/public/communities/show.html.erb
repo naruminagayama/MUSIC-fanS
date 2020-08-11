@@ -6,10 +6,16 @@
     交流できる場です。（注意：誹謗中傷や無関係の話題などは禁止されています。）
   </h6>
 </div>
-  <br>
-    <div id="chats" data-community_id="<%= @community.id %>">
-      <%= render @chats %>
-    </div>
-    <%= paginate @chats %>
-    <%= image_tag "write.png" %>
-    <%= text_field_tag :chat %>
+<br>
+<%= current_customer.inspect %>
+
+<div id="chats" data-community_id="<%= @community.id %>" data-current_customer_id="<%= current_customer.id %>">
+  <%= render @chats %>
+</div>
+<div align="right">
+  <%= image_tag "write.png" %>
+  <%= text_field_tag :chat %>
+</div>
+<%= paginate @chats %>
+<br>
+<br>

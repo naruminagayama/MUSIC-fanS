@@ -11,7 +11,8 @@ class CommunityChannel < ApplicationCable::Channel
   def speak(data)
     # ActionCable.server.broadcast 'community_channel', message: data['message']
     #Chat.create(message: data["chat"], customer_id: current_customer.id, community: Community.find(params['community_id']))                                  
-    Chat.create!(message: data["message"], customer_id: current_customer.id, community_id: params['room'])
+    # Chat.create!(message: data["message"], customer_id: current_customer.id, community_id: params['room'])
+    Chat.create_via_community_channel(data, params, current_customer.id)
   end
 end
 

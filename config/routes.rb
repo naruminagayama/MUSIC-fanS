@@ -17,6 +17,8 @@ Rails.application.routes.draw do
     resources :customers
     get '/customers/:id/follower' => 'customers#follower', as: 'follower'
     get '/customers/:id/followed' => 'customers#followed', as: 'followed'
+    get '/customers/:id/favoriteartist' => 'customers#favoriteartist', as: 'favoriteartist'
+    get '/customers/:id/favoritesong' => 'customers#favoritesong', as: 'favoritesong'
   	resources :artists, only: [:index, :show] do
       resource :favorites, only: [:create, :destroy]
       collection do
