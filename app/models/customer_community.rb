@@ -1,2 +1,0 @@
-class CustomerCommunity < ApplicationRecord
-end
