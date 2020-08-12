@@ -4,8 +4,7 @@
       <% if @customer.image_id? %>
         <%= image_tag @customer.image_id.url, :size => '100x100', class: 'icon' %>
       <% else %>
-        <img src="<%= "/assets/noimage.jpg" %>" width="100" height="100" class="icon" >
-        <%#= image_tag "/assets/noimage.jpg", :size => '100x100', class: 'icon' %>
+        <%= image_tag "noimage.jpg", :size => '100x100', class: 'icon' %>
       <% end %>
       <br>
       <br>
