@@ -9,7 +9,7 @@
             <% if @customer.image_id? %>
               <%= image_tag @customer.image_id.url, :size => '100x100', class: 'icon' %>
             <% else %>
-              <%= image_tag "/assets/noimage.jpg", :size => '100x100', class: 'icon' %>
+              <%= image_tag "noimage", :size => '100x100', class: 'icon' %>
             <% end %>
             &emsp;
             <button type="button" class="btn rounded-pill">

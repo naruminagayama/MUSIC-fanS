@@ -4,7 +4,7 @@
       <% if @customer.image_id? %>
         <%= image_tag @customer.image_id.url, :size => '100x100', class: 'icon' %>
       <% else %>
-        <%= image_tag "/assets/noimage.jpg", :size => '100x100', class: 'icon' %>
+        <%= image_tag "noimage", :size => '100x100', class: 'icon' %>
       <% end %>
       <br>
       <br>
@@ -35,7 +35,7 @@
         <% if @customer.image_id? %>
           <%= image_tag @customer.image_id.url, :size => '70x70', class: 'icon' %>
         <% else %>
-          <%= image_tag "/assets/noimage.jpg", :size => '70x70', class: 'icon' %>
+          <%= image_tag "noimage", :size => '70x70', class: 'icon' %>
         <% end %>
         <h5><strong><%= blog.title %></strong></h5>
         <span class="blog_datetime">
