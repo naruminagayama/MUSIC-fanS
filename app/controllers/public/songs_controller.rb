@@ -14,7 +14,6 @@ class Public::SongsController < ApplicationController
 
   def show
   	@song = Song.find(params[:id])
-  	@artist = Artist.find(params[:id])
   end
 
   def search
