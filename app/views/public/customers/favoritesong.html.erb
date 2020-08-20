@@ -30,9 +30,9 @@
   <div class="main col-md-9 mypage_main">
     <div class="content_border">
       <div align="center">
-      	<h3>Favorite Song</h3>
-      	<br>
-       	<% @customer.favorite2_songs.each do |song| %>
+        <h3>Favorite Song</h3>
+        <br>
+        <% @customer.favorite2_songs.each do |song| %>
           <%= link_to song.name, public_song_path(song), class: "btn_favorite_name" %>
           <br>
         <% end %>

@@ -3,18 +3,18 @@ class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
 
   def after_sign_in_path_for(resource)
-	case resource
-	when Customer
-	  public_customer_path(current_customer)
-	when AdminUser
-	  admin_comments_path
-	  stored_location_for(resource) ||
-	   if resource.is_a?(AdminUser)
-	     root_path
-	   else
-	     super
-	   end
-	end
+    case resource
+    when Customer
+      public_customer_path(current_customer)
+    when AdminUser
+      admin_comments_path
+      stored_location_for(resource) ||
+       if resource.is_a?(AdminUser)
+         root_path
+       else
+         super
+       end
+    end
   end
 
   def after_sign_out_path_for(resource)

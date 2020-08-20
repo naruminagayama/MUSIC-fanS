@@ -20,19 +20,19 @@ Rails.application.routes.draw do
     get '/customers/:id/favoriteartist' => 'customers#favoriteartist', as: 'favoriteartist'
     get '/customers/:id/favoritesong' => 'customers#favoritesong', as: 'favoritesong'
     get '/customers/:id/blogs' => 'customers#blogs', as: 'customerblogs'
-  	resources :artists, only: [:index, :show] do
+    resources :artists, only: [:index, :show] do
       resource :favorites, only: [:create, :destroy]
       collection do
         get 'search'
       end
     end
-  	resources :songs, only: [:index, :show] do
+    resources :songs, only: [:index, :show] do
       collection do
         get 'search'
       end
       resource :favorite2s, only: [:create, :destroy]
     end
-  	resources :communities, only: [:index, :show]
+    resources :communities, only: [:index, :show]
     resources :blogs, except: [:new, :show]
     post 'follow/:id' => 'relationships#follow', as: 'follow' # フォローする
     post 'unfollow/:id' => 'relationships#unfollow', as: 'unfollow' # フォロー外す

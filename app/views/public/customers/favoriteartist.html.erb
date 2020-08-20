@@ -30,9 +30,9 @@
   <div class="main col-md-9 mypage_main">
     <div class="content_border">
       <div align="center">
-      	<h3>Favorite Artist</h3>
-      	<br>
-       	<% @customer.favorite_artists.each do |artist| %>
+        <h3>Favorite Artist</h3>
+        <br>
+        <% @customer.favorite_artists.each do |artist| %>
           <%= link_to artist.name, public_artist_path(artist), class: "btn_favorite_name" %>
           <br>
         <% end %>

@@ -2,32 +2,32 @@
   <div class="first_gradation"></div>
     <div class="second_gradation"></div>
       <div class="third_gradation"></div>
-		<div class="container_about">
-		  <div class="heart">&#9829;</div>
+        <div class="container_about">
+          <div class="heart">&#9829;</div>
 
-		  <h3 class="abouttop">あなたの「好き」を形にしよう。</h3>		  
-		  <div class="flex about1_content">
-		    <p class="about1">あなたの好きな楽曲、アーティストを応援しよう。ブログを書いたり、<br>
-		    コミュニティでファンと交流ができるなど、応援方法はさまざまです。<br>
-		    フォロー機能があり、ユーザのお気に入りのアーティストや楽曲が<br>
-		    確認できたり、ブログの閲覧もできるようになっています。</p>&emsp;
-		    <%= image_tag "about_community", :size => '400x200', class: "aboutimage" %>
-		  </div>
+          <h3 class="abouttop">あなたの「好き」を形にしよう。</h3>
+          <div class="flex about1_content">
+            <p class="about1">あなたの好きな楽曲、アーティストを応援しよう。ブログを書いたり、<br>
+            コミュニティでファンと交流ができるなど、応援方法はさまざまです。<br>
+            フォロー機能があり、ユーザのお気に入りのアーティストや楽曲が<br>
+            確認できたり、ブログの閲覧もできるようになっています。</p>&emsp;
+            <%= image_tag "about_community", :size => '400x200', class: "aboutimage" %>
+          </div>
 
-		  <div class="flex about2_content">
-		  	<%= image_tag "what_you_listen_to", :size => '400x200', class: "aboutimage" %>&emsp;
-		    <p class="about2">音楽は最高音質での配信。名曲から最新曲まで、さまざまなジャンルを<br>
-		    取り揃えており、検索機能も充実しています。ランキング形式になって<br>
-		    いるので、いま注目されているコンテンツがひと目で分かります。<br>
-		    あなたの好きなときにいつでもどこでも利用いただけます。</p>
-		  </div>
+          <div class="flex about2_content">
+            <%= image_tag "what_you_listen_to", :size => '400x200', class: "aboutimage" %>&emsp;
+            <p class="about2">音楽は最高音質での配信。名曲から最新曲まで、さまざまなジャンルを<br>
+            取り揃えており、検索機能も充実しています。ランキング形式になって<br>
+            いるので、いま注目されているコンテンツがひと目で分かります。<br>
+            あなたの好きなときにいつでもどこでも利用いただけます。</p>
+          </div>
 
-		  <h3 class="abouttop2">さあ、はじめよう！</h3>
-		  <div class="flex aboutlink">
-		  	<div class= "aboutlink_contents">
-		      <%= link_to "Login", customer_session_path, class: "btn btn--orange btn--radius btn--cubic" %>
+          <h3 class="abouttop2">さあ、はじめよう！</h3>
+          <div class="flex aboutlink">
+            <div class= "aboutlink_contents">
+              <%= link_to "Login", customer_session_path, class: "btn btn--orange btn--radius btn--cubic" %>
               <%= link_to "Signup", new_customer_registration_path, class: "btn btn--blue btn--radius btn--cubic" %>
             </div>
           </div>
-		</div>
-</div>  
+        </div>
+</div>
