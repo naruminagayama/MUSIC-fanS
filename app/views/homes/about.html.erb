@@ -25,9 +25,9 @@
 		  <h3 class="abouttop2">さあ、はじめよう！</h3>
 		  <div class="flex aboutlink">
 		  	<div class= "aboutlink_contents">
-		      <a href="/customers/sign_in" class="btn btn--orange btn--radius btn--cubic">Login</a>
-              <a href="/customers/sign_up" class="btn btn--blue btn--radius btn--cubic">Signup</a>
+		      <%= link_to "Login", customer_session_path, class: "btn btn--orange btn--radius btn--cubic" %>
+              <%= link_to "Signup", new_customer_registration_path, class: "btn btn--blue btn--radius btn--cubic" %>
             </div>
           </div>
 		</div>
-</div>
+</div>  

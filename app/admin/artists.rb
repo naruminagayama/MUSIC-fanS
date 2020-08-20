@@ -39,6 +39,6 @@ ActiveAdmin.register Artist do
       row :formation_yeah
       row :is_active
     end
-  end    
-  
+  end 
+     
 end

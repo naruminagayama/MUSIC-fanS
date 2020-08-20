@@ -1,8 +1,8 @@
 <div class="bg_slider3">
   <div align="center">
-    <a href="/customers/sign_in" class="btn btn--orange btn--radius btn--cubic">Login</a>
+    <%= link_to "Login", customer_session_path, class: "btn btn--orange btn--radius btn--cubic" %>
     <br>
     <br>
-    <a href="/customers/sign_up" class="btn btn--blue btn--radius btn--cubic">Signup</a>
+    <%= link_to "Signup", new_customer_registration_path, class: "btn btn--blue btn--radius btn--cubic" %>
   </div>
 </div>
