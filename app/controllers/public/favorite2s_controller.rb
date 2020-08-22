@@ -9,6 +9,7 @@ class Public::Favorite2sController < ApplicationController
       end
       @song = Song.find(params[:song_id])
     else
+      logger.error
       respond_to do |format| 
         format.js { flash.now[:alert] = 'エラーが発生しました' }
       end
@@ -25,6 +26,7 @@ class Public::Favorite2sController < ApplicationController
       end
       @song = Song.find(params[:song_id])
     else
+      logger.error
       respond_to do |format| 
         format.js { flash.now[:alert] = 'エラーが発生しました' }
       end
