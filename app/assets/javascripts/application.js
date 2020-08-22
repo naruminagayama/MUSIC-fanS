@@ -23,3 +23,4 @@
 //= require tag-it
 
 //= require audiojs
+//= require toastr

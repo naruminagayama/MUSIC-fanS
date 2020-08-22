@@ -4,5 +4,6 @@ class Blog < ApplicationRecord
   acts_as_taggable
 
   belongs_to :customer
+  validates :title, presence: true
 
 end

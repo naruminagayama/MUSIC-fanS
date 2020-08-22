@@ -7,3 +7,13 @@
       ♡<%= song.favorite2s.count %>
   <% end %>
 <% end %>
+
+<% if flash.any? %>
+  <script type="text/javascript">
+    <% flash.each do |key, value| %>
+      <% key = "success" if key == "notice" %>
+      <% key = "error" if key == "alert" %>
+      toastr['<%= key %>']('<%= value %>');
+    <% end %>
+  </script>
+<% end %>

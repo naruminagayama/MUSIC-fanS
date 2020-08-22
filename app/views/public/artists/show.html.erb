@@ -6,12 +6,12 @@
     </div>
     <div class="artist_label">
       <label class="btn btn_artistname btn-lg"><span><%= @artist.name %></span></label>
-	  <br>
+    <br>
     <span class="artist_<%= @artist.id %>">
       <%= render 'public/artists/favorite', artist: @artist, locals: {artist: @artist} %>
     </span>
-	  &nbsp; since <%= @artist.formation_yeah %>~
-	  </div>
+    &nbsp; since <%= @artist.formation_yeah %>~
+    </div>
   </div>
   <br>
   <br>
