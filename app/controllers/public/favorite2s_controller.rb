@@ -3,38 +3,45 @@ class Public::Favorite2sController < ApplicationController
   def create
     @song = Song.find(params[:song_id])
     favorite2 = current_customer.favorite2s.new(song_id: @song.id)
-    if favorite2.save
+
+    begin
+      favorite2.save!
+    rescue => e
       respond_to do |format| 
-        format.js { flash.now[:notice] = 'お気に入りに登録しました' }
+        format.js { flash.now[:alert] = '登録に失敗しました' }
       end
-      @song = Song.find(params[:song_id])
-    else
-      logger.error
-      respond_to do |format| 
-        format.js { flash.now[:alert] = 'エラーが発生しました' }
-      end
-      @song = Song.find(params[:song_id])
+      logger.error e
+      return render 'public/songs/favorite'
+    end
+
+    favorite2.save
+    respond_to do |format| 
+      format.js { flash.now[:notice] = 'お気に入りに登録しました' }
     end
   end
 
   def destroy
     @song = Song.find(params[:song_id])
     favorite2 = current_customer.favorite2s.find_by(song_id: @song.id)
-    if favorite2.destroy
+
+    begin
+      favorite2.destroy!
+    rescue => e
       respond_to do |format| 
-        format.js { flash.now[:notice] = 'お気に入りを解除しました' }
+        format.js { flash.now[:alert] = '登録に失敗しました' }
       end
-      @song = Song.find(params[:song_id])
-    else
-      logger.error
-      respond_to do |format| 
-        format.js { flash.now[:alert] = 'エラーが発生しました' }
-      end
-      @song = Song.find(params[:song_id])
+      logger.error e
+      return render 'public/songs/favorite'
+    end
+
+    favorite2.destroy
+    respond_to do |format| 
+      format.js { flash.now[:notice] = 'お気に入りを解除しました' }
     end
   end
 
   private
+
   def song_params
     @song = Song.find(params[:song_id])
   end
