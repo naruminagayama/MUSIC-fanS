@@ -11,6 +11,7 @@ class Public::Favorite2sController < ApplicationController
         format.js { flash.now[:alert] = '登録に失敗しました' }
       end
       logger.error e
+      return
     end
 
     respond_to do |format| 
@@ -29,6 +30,7 @@ class Public::Favorite2sController < ApplicationController
         format.js { flash.now[:alert] = '登録に失敗しました' }
       end
       logger.error e
+      return
     end
 
     respond_to do |format| 
