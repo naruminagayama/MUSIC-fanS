@@ -9,9 +9,25 @@ class Public::RegistrationsController < Devise::RegistrationsController
   # end
 
   # POST /resource
-  # def create
-  #   super
-  # end
+  def create
+    # super
+    # flash[:error] = 'テスト'
+    build_resource(sign_up_params)
+
+    begin
+      resource.save!
+    rescue ActiveRecord::RecordInvalid => e
+      flash.now[:alert] = e
+        .record
+        .errors
+        .full_messages
+      return render :edit
+    rescue => e
+      flash.now[:alert] = '更新に失敗しました'
+      logger.error e
+      return render :edit
+    end
+  end
 
   # GET /resource/edit
   # def edit

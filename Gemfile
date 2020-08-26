@@ -89,3 +89,4 @@ gem 'jquery-ui-rails'
 gem 'coffee-script-source'
 
 gem 'toastr-rails'
+gem 'rails-i18n'

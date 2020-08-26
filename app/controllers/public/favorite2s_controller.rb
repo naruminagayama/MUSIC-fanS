@@ -8,14 +8,14 @@ class Public::Favorite2sController < ApplicationController
       favorite2.save!
     rescue => e
       respond_to do |format| 
-        format.js { flash.now[:alert] = '登録に失敗しました' }
+        format.js {flash.now[:alert] = '登録に失敗しました'}
       end
       logger.error e
       return
     end
 
     respond_to do |format| 
-      format.js { flash.now[:notice] = 'お気に入りに登録しました' }
+      format.js {flash.now[:notice] = 'お気に入りに登録しました'}
     end
   end
 
@@ -27,14 +27,14 @@ class Public::Favorite2sController < ApplicationController
       favorite2.destroy!
     rescue => e
       respond_to do |format| 
-        format.js { flash.now[:alert] = '登録に失敗しました' }
+        format.js {flash.now[:alert] = '登録に失敗しました'}
       end
       logger.error e
       return
     end
 
     respond_to do |format| 
-      format.js { flash.now[:notice] = 'お気に入りを解除しました' }
+      format.js {flash.now[:notice] = 'お気に入りを解除しました'}
     end
   end
 

@@ -3,16 +3,43 @@ class Public::FavoritesController < ApplicationController
   def create
     @artist = Artist.find(params[:artist_id])
     favorite = current_customer.favorites.new(artist_id: @artist.id)
-    favorite.save
+
+    begin
+      favorite.save!
+    rescue => e
+      respond_to do |format| 
+        format.js {flash.now[:alert] = '登録に失敗しました'}
+      end
+      logger.error e
+      return
+    end
+
+    respond_to do |format| 
+      format.js {flash.now[:notice] = 'お気に入りに登録しました'}
+    end
   end
 
   def destroy
     @artist = Artist.find(params[:artist_id])
     favorite = current_customer.favorites.find_by(artist_id: @artist.id)
-    favorite.destroy
+
+    begin
+      favorite.destroy!
+    rescue => e
+      respond_to do |format| 
+        format.js {flash.now[:alert] = '登録に失敗しました'}
+      end
+      logger.error e
+      return
+    end
+
+    respond_to do |format| 
+      format.js {flash.now[:notice] = 'お気に入りを解除しました'}
+    end
   end
 
   private
+  
   def artist_params
     @artist = Artist.find(params[:artist_id])
   end

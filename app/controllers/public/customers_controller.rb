@@ -3,16 +3,31 @@ class Public::CustomersController < ApplicationController
   before_action :authenticate_customer!
 
   def show
-  	@customer = Customer.find(params[:id])
+    @customer = Customer.find(params[:id])
   end
 
   def edit
-  	@customer = Customer.find(params[:id])
+    @customer = Customer.find(params[:id])
   end
 
   def update
-  	@customer = Customer.find(params[:id])
-    @customer.update(customer_params)
+    @customer = Customer.find(params[:id])
+
+    begin
+      @customer.update!(customer_params)
+    rescue ActiveRecord::RecordInvalid => e
+      flash.now[:alert] = e
+        .record
+        .errors
+        .full_messages
+      return render :edit
+    rescue => e
+      flash.now[:alert] = '更新に失敗しました'
+      logger.error e
+      return render :edit
+    end
+
+    flash[:notice] = '登録情報が更新されました'
     redirect_to public_customer_path(@customer.id)
   end
 
@@ -43,7 +58,8 @@ class Public::CustomersController < ApplicationController
 
   private
   def customer_params
-    params.require(:customer).permit(:last_name, :first_name, :last_name_kana, :first_name_kana, :email, :nickname, :image_id)
+    params.require(:customer).permit(:last_name, :first_name, :last_name_kana, 
+                                     :first_name_kana, :email, :nickname, :image_id)
   end
 
 end
