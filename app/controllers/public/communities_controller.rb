@@ -8,7 +8,7 @@ class Public::CommunitiesController < ApplicationController
 
   def show
     @community = Community.find(params[:id])
-    @chats = @community.chats.page(params[:page]).per(10)
+    @chats = @community.chats.includes(:customer).page(params[:page]).per(10)
   end
 
 end
