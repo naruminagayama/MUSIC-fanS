@@ -1,6 +1,4 @@
 class Public::ArtistsController < ApplicationController
-  
-  before_action :authenticate_customer!
 
   def index
     @artists = Artist.all.page(params[:page]).per(6)
