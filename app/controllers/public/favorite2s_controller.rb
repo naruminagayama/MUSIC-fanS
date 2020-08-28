@@ -1,7 +1,8 @@
 class Public::Favorite2sController < ApplicationController
 
+  before_action(only: %i[create destroy]){song_params}
+
   def create
-    @song = Song.find(params[:song_id])
     favorite2 = current_customer.favorite2s.new(song_id: @song.id)
 
     begin
@@ -20,7 +21,6 @@ class Public::Favorite2sController < ApplicationController
   end
 
   def destroy
-    @song = Song.find(params[:song_id])
     favorite2 = current_customer.favorite2s.find_by(song_id: @song.id)
 
     begin

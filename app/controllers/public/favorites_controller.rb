@@ -1,7 +1,8 @@
 class Public::FavoritesController < ApplicationController
 
+  before_action(only: %i[create destroy]){artist_params}
+
   def create
-    @artist = Artist.find(params[:artist_id])
     favorite = current_customer.favorites.new(artist_id: @artist.id)
 
     begin
@@ -20,7 +21,6 @@ class Public::FavoritesController < ApplicationController
   end
 
   def destroy
-    @artist = Artist.find(params[:artist_id])
     favorite = current_customer.favorites.find_by(artist_id: @artist.id)
 
     begin
