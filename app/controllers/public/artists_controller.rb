@@ -12,7 +12,6 @@ class Public::ArtistsController < ApplicationController
 
   def show
     @artist = Artist.find(params[:id])
-    # @songs = @artist.@song.all.page(params[:page]).per(4)
   end
 
   def search
