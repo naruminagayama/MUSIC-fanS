@@ -3,7 +3,7 @@ $(function() {
     var input = $(".search-input").val(); //キーを離したら処理する
     $.ajax({
       type: 'GET',                       //HTTPメソッドはGET
-      url: '/public/songs/search',    //rails routesで確認
+      url: '/front/songs/search',    //rails routesで確認
       data: { keyword: input },
       dataType: 'json'
     })
@@ -34,7 +34,7 @@ $(function() {
           <div><img src="${song.image_id}"></div>
           <div>
             <span style="font-size: 30px;">
-              <a href="/public/songs/${song.id}" style="color: gold; text-decoration: none;">${song.name}</a>
+              <a href="/front/songs/${song.id}" style="color: gold; text-decoration: none;">${song.name}</a>
               (${song.sale_year})
             </span>
             <br><br>

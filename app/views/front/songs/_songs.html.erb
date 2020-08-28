@@ -1,0 +1,21 @@
+<% @songs.each do |song| %>
+<% if song.is_active == true %>
+  <div class="flex">
+    <div class="artist_box">
+      <div class="shadow_box">
+        <%= image_tag song.image_id.to_s %>
+      </div>
+      <br>
+      <%= song.name %>
+      <br>
+      <a href="/front/songs/<%= song.id %>" class="btn btn_viewmore"><span>VIEW MORE</span></a>
+      <div class="song_<%= song.id %>">
+        <%= render 'front/songs/favorite', song: song, locals: {song: song} %>
+      </div>
+    </div>
+  </div>
+<% end %>
+<% end %>
+<br>
+<%= paginate @songs, remote: true %>
+<br>

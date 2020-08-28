@@ -15,7 +15,7 @@ class MessageBroadcastJob < ApplicationJob
   def render_message(chat, current_customer_id)
     current_customer = Customer.find(current_customer_id)
     ApplicationController.renderer.render(
-      partial: 'public/chats/chat',
+      partial: 'front/chats/chat',
       locals: { chat: chat, current_customer: current_customer }
     )
   end

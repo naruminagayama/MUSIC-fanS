@@ -1,0 +1,2 @@
+module Front::CustomersHelper
+end
