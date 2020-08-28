@@ -6,14 +6,14 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
   devise_for :customers, controllers: {
-    registrations: 'public/registrations',
-    sessions: 'public/sessions'
+    registrations: 'front/registrations',
+    sessions: 'front/sessions'
   }
 
   root 'homes#top'
   get '/homes/about' => 'homes#about'
 
-  namespace :public do
+  namespace :front do
     resources :customers
     get '/customers/:id/follower' => 'customers#follower', as: 'follower'
     get '/customers/:id/followed' => 'customers#followed', as: 'followed'

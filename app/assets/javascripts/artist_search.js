@@ -3,7 +3,7 @@ $(function() {
     var input = $(".artistsearch_input").val(); //キーを離したら処理する
     $.ajax({
       type: 'GET',                       //HTTPメソッドはGET
-      url: '/public/artists/search',    //rails routesで確認
+      url: '/front/artists/search',    //rails routesで確認
       data: { keyword: input },
       dataType: 'json'
     })

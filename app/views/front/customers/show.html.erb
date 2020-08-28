@@ -1,0 +1,59 @@
+<div class="row">
+  <div class="sidebar col-md-3">
+    <div class="content_border">
+      <% if @customer.image_id? %>
+        <%= image_tag @customer.image_id.url, :size => '100x100', class: 'icon' %>
+      <% else %>
+        <%= image_tag "noimage", :size => '100x100', class: 'icon' %>
+      <% end %>
+      <br>
+      <br>
+      <h6 class="mypage_headline">nickname</h6>
+        <p class="mypage_content"><%= @customer.nickname %></p>
+      <h6 class="mypage_headline">email</h6>
+        <p class="mypage_content"><%= @customer.email %></p>
+      <h6 class="mypage_headline">follow</h6>
+        <p class="mypage_content"><%= link_to @customer.follower.count, front_follower_path %></p>
+      <h6 class="mypage_headline">follower</h6>
+        <p class="mypage_content"><%= link_to @customer.followed.count, front_followed_path %></p>
+      <% unless @customer == current_customer %>
+        <% if current_customer.following?(@customer) %>
+          <%= link_to 'フォロー外す', front_unfollow_path(@customer.id), method: :post, class: 'btn_follow', :style => "color: white;" "text-decoration: none;" %>
+        <% else %>
+          <%= link_to 'フォローする', front_follow_path(@customer.id), method: :post, class: 'btn_follow', :style => "color: white;" "text-decoration: none;" %>
+        <% end %>
+      <% end %>
+      <% if @customer == current_customer %>
+        <%= link_to '変更', edit_front_customer_path(current_customer), class: 'btn_blogedit', :style => "color: white;" "text-decoration: none;" %>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="main col-md-9 mypage_main">
+    <div class="content_border mypage_linkwhole">
+      <div align="center">
+        <%= link_to image_tag("heart.png"), front_favoriteartist_path(@customer.id) %>
+          &emsp;<%= link_to "Favorite Artist", front_favoriteartist_path(@customer.id), class: "mypage_link" %>
+        <br>
+        <br>
+        <%= link_to image_tag("heart.png"), front_favoritesong_path(@customer.id) %>
+          &emsp;<%= link_to "Favorite Song", front_favoritesong_path(@customer.id), class: "mypage_link" %>&nbsp;
+        <br>
+        <br>
+        <%= link_to image_tag("heart.png"), homes_about_path %>
+          &emsp;<%= link_to "Help", homes_about_path, class: "mypage_link" %>
+          &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+      </div>
+    </div>
+  </div>
+</div>
+
+<% if flash.any? %>
+  <script type="text/javascript">
+    <% flash.each do |key, value| %>
+      <% key = "success" if key == "notice" %>
+      <% key = "error" if key == "alert" %>
+      toastr['<%= key %>']('<%= value %>');
+    <% end %>
+  </script>
+<% end %>

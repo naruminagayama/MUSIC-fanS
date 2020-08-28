@@ -3,7 +3,7 @@ $(function() {
     var input = $(".search-input").val(); //キーを離したら処理する
     $.ajax({
       type: 'GET',                       //HTTPメソッドはGET
-      url: '/public/artists/search',    //rails routesで確認
+      url: '/front/artists/search',    //rails routesで確認
       data: { keyword: input },
       dataType: 'json'
     })
@@ -39,7 +39,7 @@ $(function() {
           <div><img src="${artist.image_id}"></div>
           <div>
             <span style="font-size: 30px;">
-              <a href="/public/artists/${artist.id}" style="color: gold; text-decoration: none;">${artist.name}</a>
+              <a href="/front/artists/${artist.id}" style="color: gold; text-decoration: none;">${artist.name}</a>
             </span>
             <br><br>
             <span style="color: white;">${artist.detail}</span>

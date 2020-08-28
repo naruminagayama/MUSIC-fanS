@@ -1,0 +1,73 @@
+<div class="row">
+  <div class="sidebar col-md-3">
+    <div class="content_border">
+      <% if @customer.image_id? %>
+        <%= image_tag @customer.image_id.url, :size => '100x100', class: 'icon' %>
+      <% else %>
+        <%= image_tag "noimage", :size => '100x100', class: 'icon' %>
+      <% end %>
+      <br>
+      <br>
+      <h6 class="mypage_headline">nickname</h6>
+        <p class="mypage_content"><%= @customer.nickname %></p>
+      <h6 class="mypage_headline">email</h6>
+        <p class="mypage_content"><%= @customer.email %></p>
+      <h6 class="mypage_headline">follow</h6>
+        <p class="mypage_content"><%= link_to @customer.follower.count, front_follower_path %></p>
+      <h6 class="mypage_headline">follower</h6>
+        <p class="mypage_content"><%= link_to @customer.followed.count, front_followed_path %></p>
+      <% unless @customer == current_customer %>
+        <% if current_customer.following?(@customer) %>
+          <%= link_to 'フォロー外す', front_unfollow_path(@customer.id), method: :post, class: 'btn_follow', :style => "color: white;" "text-decoration: none;" %>
+        <% else %>
+          <%= link_to 'フォローする', front_follow_path(@customer.id), method: :post, class: 'btn_follow', :style => :style => "color: white;" "text-decoration: none;" %>
+        <% end %>
+      <% end %>
+      <%= link_to '変更', edit_front_customer_path(current_customer), class: 'btn_blogedit', :style => "color: white;" "text-decoration: none;" %>
+    </div>
+  </div>
+
+  <div class="main col-md-9">
+    <div class="content_border">
+      <% @blogs.each do |blog| %>
+      <div class="blog_<%= blog.id %>">
+        <div class="flex_blog">
+        <% if @customer.image_id? %>
+          <%= image_tag @customer.image_id.url, :size => '70x70', class: 'icon' %>
+        <% else %>
+          <%= image_tag "noimage", :size => '70x70', class: 'icon' %>
+        <% end %>
+        <h5><strong><%= blog.title %></strong></h5>
+        <span class="blog_datetime">
+          <%= blog.updated_at.strftime("%Y-%m-%d %H:%M") %>
+        </span>  
+        <span>
+          <%= link_to "編集", edit_front_blog_path(blog.id), remote: true, class: 'btn_blogedit', :style => "color: white;" "text-decoration: none;" %>
+        </span> 
+        <span>     
+          <%= link_to "削除", front_blog_path(id: blog.id), method: :delete, class: 'btn_blogdelete', :style => "color: white;" "text-decoration: none;" %>
+        </span>
+        </div>
+        <br>
+        <%= image_tag blog.image_id.url, :size => '320x300' %>
+        <span class="blog_content">
+          <%= blog.content %>
+        </span>
+      </div>
+      <br><br>
+      <% end %>
+      <%= paginate @blogs %>
+
+      <div class="calendar_size">
+        <%= month_calendar events: @blogs do |date, blogs| %>       
+          <%= date.day %>
+          <% blogs.each do |blog| %>
+            <div>
+              <%= link_to blog.title %>
+            </div>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
