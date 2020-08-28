@@ -19,7 +19,10 @@ class Public::BlogsController < ApplicationController
     begin
       @blog.save!
     rescue ActiveRecord::RecordInvalid => e
-      flash.now[:alert] = 'タイトルを入力してください'
+      flash.now[:alert] = e
+        .record
+        .errors
+        .full_messages
       return render :index
     rescue => e
       flash.now[:alert] = '投稿に失敗しました'
