@@ -1,5 +1,6 @@
 class Front::Favorite2sController < ApplicationController
 
+  before_action :authenticate_customer!
   before_action(only: %i[create destroy]){song_params}
 
   def create

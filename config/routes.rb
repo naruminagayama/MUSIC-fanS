@@ -38,7 +38,4 @@ Rails.application.routes.draw do
     post 'unfollow/:id' => 'relationships#unfollow', as: 'unfollow' # フォロー外す
   end
 
-  get '*not_found' => 'application#routing_error'
-  post '*not_found' => 'application#routing_error'
-
 end

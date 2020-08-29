@@ -9,10 +9,9 @@ class Front::RegistrationsController < Devise::RegistrationsController
   # end
 
   # POST /resource
-  def create
-    super
-    flash[:error] = 'テスト'
-  end
+  # def create
+    # super
+  # end
 
   # GET /resource/edit
   # def edit

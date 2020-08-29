@@ -1,5 +1,6 @@
 class Front::FavoritesController < ApplicationController
 
+  before_action :authenticate_customer!
   before_action(only: %i[create destroy]){artist_params}
 
   def create
