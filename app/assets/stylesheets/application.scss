@@ -1108,3 +1108,73 @@
  a.btn_favorite_name {
    text-decoration: none;
  }
+
+ /* エラーページ 上部余白 */
+
+ .error_image {
+   margin-top: 1.5rem;
+ }
+
+ /* エラーページ 文字 */
+
+ .error_string {
+   font-size: 30px;
+   font-weight: 800;
+   line-height: 230px;
+   padding-left: 30px;
+ }
+
+ /* エラーページ リンクボタン */
+
+ a.btn-border-shadow {
+   padding: calc(1.5rem - 12px) 3rem 1.5rem;
+   margin-bottom: 1.5rem;
+   background: #fff;
+   font-size: 1.6rem;
+   font-weight: 700;
+   line-height: 1.5;
+   position: relative;
+   display: inline-block;
+   padding: 1rem 4rem;
+   cursor: pointer;
+   -moz-user-select: none;
+   -ms-user-select: none;
+   user-select: none;
+   transition: all 0.3s;
+   text-align: center;
+   vertical-align: middle;
+   text-decoration: none;
+   letter-spacing: 0.1em;
+   color: #212529;
+   border-radius: 0.5rem;
+ }
+
+ a.btn-border-shadow:before {
+   position: absolute;
+   top: -6px;
+   left: -6px;
+   width: 100%;
+   height: 100%;
+   content: "";
+   transition: all 0.3s ease;
+   border: 3px solid #000;
+   border-radius: 0.5rem;
+ }
+
+ a.btn-border-shadow:hover {
+   padding: calc(1.5rem - 6px) 3rem;
+ }
+
+ a.btn-border-shadow:hover:before {
+   top: 0;
+   left: 0;
+ }
+
+ a.btn-border-shadow--color2 {
+   border-radius: 100vh;
+ }
+
+ a.btn-border-shadow--color2:before {
+   border-radius: 100vh;
+   box-shadow: 3px 3px 0 yellow;
+ }
