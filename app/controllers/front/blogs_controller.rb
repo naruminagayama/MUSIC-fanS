@@ -1,6 +1,7 @@
 class Front::BlogsController < ApplicationController
 
   before_action :authenticate_customer!
+  before_action :blog_find, only: [:edit, :update, :destroy]
 
   def index
     @customer = current_customer
@@ -37,11 +38,9 @@ class Front::BlogsController < ApplicationController
   end
 
   def edit
-    @blog = Blog.find(params[:id])
   end
 
   def update
-    @blog = Blog.find(params[:id])
     @customer = current_customer
     @blogs = Blog.where(customer_id: current_customer.id)
                  .order("created_at DESC")
@@ -63,8 +62,6 @@ class Front::BlogsController < ApplicationController
   end
 
   def destroy
-    @blog = Blog.find(params[:id])
-
     begin
       @blog.destroy!
     rescue => e
@@ -82,5 +79,10 @@ class Front::BlogsController < ApplicationController
   def blog_params
     params.require(:blog).permit(:title, :content, :image_id, :start_time)
   end
+
+  def blog_find
+    @blog = Blog.find(params[:id])
+  end
+
 
 end

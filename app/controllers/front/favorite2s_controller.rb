@@ -1,7 +1,7 @@
 class Front::Favorite2sController < ApplicationController
 
   before_action :authenticate_customer!
-  before_action(only: %i[create destroy]){song_params}
+  before_action :song_params, only: [:create, :destroy]
 
   def create
     favorite2 = current_customer.favorite2s.new(song_id: @song.id)
