@@ -21,7 +21,7 @@ Rails.application.routes.draw do
     get '/customers/:id/favoritesong' => 'customers#favoritesong', as: 'favoritesong'
     get '/customers/:id/blogs' => 'customers#blogs', as: 'customerblogs'
     resources :artists, only: [:index, :show] do
-      resource :favorites, only: [:create, :destroy]
+      resource :favorite_artists, only: [:create, :destroy]
       collection do
         get 'search'
       end
@@ -30,7 +30,7 @@ Rails.application.routes.draw do
       collection do
         get 'search'
       end
-      resource :favorite2s, only: [:create, :destroy]
+      resource :favorite_songs, only: [:create, :destroy]
     end
     resources :communities, only: [:index, :show]
     resources :blogs, except: [:new, :show]

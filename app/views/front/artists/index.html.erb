@@ -12,15 +12,15 @@
 
   <div class="content_border">
     <h3 class="ranking_label"><span>Best ARTIST Ranking</span></h3>
-      <% lastFavorite = 0 %>
+      <% lastFavoriteArtist = 0 %>
       <% j = 1 %>
       <% @all_ranks.each.with_index(1) do |artist, i| %>
       <div class="flex">
         <div class="artist_box">
           <% if i == 1 %>
-            <% lastFavorite = artist.favorites.count %>
+            <% lastFavoriteArtist = artist.favorite_artists.count %>
           <% end %>
-          <% if artist.favorites.count != lastFavorite %>
+          <% if artist.favorite_artists.count != lastFavoriteArtist %>
             <% j = i %>
             <div class="shadow_box">          
               <%= image_tag artist.image_id.to_s %>
@@ -38,10 +38,10 @@
             <br>
             <strong><%= link_to artist.name, front_artist_path(artist.id) %></strong>
             <br>
-            お気に入り数：<%= artist.favorites.count %>
-            <% lastFavorite = artist.favorites.count %>
+            お気に入り数：<%= artist.favorite_artists.count %>
+            <% lastFavoriteArtist = artist.favorite_artists.count %>
           <% else %>
-            <% lastFavorite = artist.favorites.count %> 
+            <% lastFavoriteArtist = artist.favorite_artists.count %> 
             <div class="shadow_box">         
               <%= image_tag artist.image_id.to_s %>
             </div>           
@@ -58,7 +58,7 @@
             <br>
             <strong><%= link_to artist.name, front_artist_path(artist.id) %></strong>
             <br>
-            お気に入り数：<%= artist.favorites.count %>
+            お気に入り数：<%= artist.favorite_artists.count %>
           <% end %>
           <br>
         </div>

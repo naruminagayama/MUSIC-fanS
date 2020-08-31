@@ -32,7 +32,7 @@
       <div align="center">
         <h3>Favorite Song</h3>
         <br>
-        <% @customer.favorite2_songs.each do |song| %>
+        <% @customer.favorite_song_songs.each do |song| %>
           <%= link_to song.name, front_song_path(song), class: "btn_favorite_name" %>
           <br>
         <% end %>

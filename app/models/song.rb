@@ -5,10 +5,10 @@ class Song < ApplicationRecord
   belongs_to :artist
   belongs_to :genre
 
-  has_many :favorite2s, dependent: :destroy
+  has_many :favorite_songs, dependent: :destroy
 
   def favorited_by?(customer)
-    favorite2s.where(customer_id: customer.id).exists?
+    favorite_songs.where(customer_id: customer.id).exists?
   end
   
 end
