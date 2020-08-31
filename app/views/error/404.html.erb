@@ -1,14 +1,13 @@
-<br>
-<br>
-<br>
-<br>
-<h1>エラー</h1>
-<br>
-あああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああ
-<br>
-<br>
-<br>
-<br>
-<h1>エラー</h1>
-<br>
-あああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああ
+<div align="center">
+  <div class="content_border">
+    <div class="flex error_image">
+      <%= image_tag "sorry", :size => "400x200" %>
+      <p class="error_string">404 Not Found</p>
+    </div>
+    <br>
+    <p>申し訳ございません。お探しのページが見つかりませんでした。</p><br>
+    <p>お探しのページは移動、または削除された可能性がございます。</p><br>
+    <p>もしくはご指定のURLに誤りがないかご確認ください。</p><br>
+    <%= link_to "TOPページへ戻る", root_path, class: "btn btn-border-shadow btn-border-shadow--color2" %>
+  </div>
+</div>
