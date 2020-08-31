@@ -1,9 +1,9 @@
 <div class="content_border">
   <h2 class="text-center">Log in</h2><br>
   <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-    <p class="text-center valid_error"><span><%= flash[:alert] %></span></p>
 
   <div align="center">
+    <span style="color: red;"><%= flash[:alert] %></span>
     <table class="customer_form">
       <tbody>
         <tr>
