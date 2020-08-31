@@ -1,34 +1,86 @@
 <div class="content_border">
   <h2 class="text-center">Sign up</h2><br>
     <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+
+    <% if @customer.errors.any? %>
+      <div id="error">
+        <h3 class="valid_error"><span><%= @customer.errors.count %>つのエラーが発生した為、登録に失敗しました</span></h3>
+      </div>
+    <% end %>
+
     <div align="center">
       <table>
         <tbody>
           <tr>
             <td>　　　　名前(姓/名)</td>
-            <td><%= f.text_field :last_name, autofocus: true, autocomplete: "last_name" %></td>
-            <td><%= f.text_field :first_name, autocomplete: "first_name" %></td>
+            <td>
+              <%= f.text_field :last_name, autofocus: true, autocomplete: "last_name" %>
+              <% if @customer.errors.include?(:last_name) %>
+                <p style="color: red;"><%= @customer.errors.full_messages_for(:last_name).first %>
+              <% end %>
+            </td>
+            <td>
+              <%= f.text_field :first_name, autocomplete: "first_name" %>
+              <% if @customer.errors.include?(:first_name) %>
+                <p style="color: red;"><%= @customer.errors.full_messages_for(:first_name).first %>
+              <% end %>
+            </td>
           </tr>
+
           <tr>
             <td>　　　　フリガナ(セイ/メイ)</td>
-            <td><%= f.text_field :last_name_kana, autocomplete: "last_name_kana" %></td>
-            <td><%= f.text_field :first_name_kana, autocomplete: "first_name_kana" %></td>
+            <td>
+              <%= f.text_field :last_name_kana, autocomplete: "last_name_kana" %>
+              <% if @customer.errors.include?(:last_name_kana) %>
+                <p style="color: red;"><%= @customer.errors.full_messages_for(:last_name_kana).first %>
+              <% end %>
+            </td>
+            <td>
+              <%= f.text_field :first_name_kana, autocomplete: "first_name_kana" %>
+              <% if @customer.errors.include?(:first_name_kana) %>
+                <p style="color: red;"><%= @customer.errors.full_messages_for(:first_name_kana).first %>
+              <% end %>
+            </td>
           </tr>
+
           <tr>
             <td><%= f.label :email, "　　　　メールアドレス" %></td>
-            <td><%= f.email_field :email, autocomplete: "email" %></td>
+            <td>
+              <%= f.email_field :email, autocomplete: "email" %>
+              <% if @customer.errors.include?(:email) %>
+                <p style="color: red;"><%= @customer.errors.full_messages_for(:email).first %>
+              <% end %>
+            </td>
           </tr>
+
           <tr>
             <td><%= f.label :nickname, "　　　　ニックネーム" %></td>
-            <td><%= f.text_field :nickname, autocomplete: "nickname" %></td>
+            <td>
+              <%= f.text_field :nickname, autocomplete: "nickname" %>
+              <% if @customer.errors.include?(:nickname) %>
+                <p style="color: red;"><%= @customer.errors.full_messages_for(:nickname).first %>
+              <% end %>
+            </td>
           </tr>
+
           <tr>
             <td><%= f.label :password, "　　　　パスワード(6文字以上)" %></td>
-            <td><%= f.password_field :password, autocomplete: "new-password" %></td>
+            <td>
+              <%= f.password_field :password, autocomplete: "new-password" %>
+              <% if @customer.errors.include?(:password) %>
+                <p style="color: red;"><%= @customer.errors.full_messages_for(:password).first %>
+              <% end %>
+            </td>
           </tr>
+
           <tr>
             <td><%= f.label :password_confirmation,"　　　　パスワード(確認用)" %></td>
-            <td><%= f.password_field :password_confirmation, autocomplete: "new-password" %></td>
+            <td>
+              <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+              <% if @customer.errors.include?(:password_confirmation) %>
+                <p style="color: red;"><%= @customer.errors.full_messages_for(:password_confirmation).first %>
+              <% end %>
+            </td>
           </tr>
         </tbody>
       </table>
@@ -52,13 +104,3 @@
     </div>
   </div>
 </div>
-
-<% if flash.any? %>
-  <script type="text/javascript">
-    <% flash.each do |key, value| %>
-      <% key = "success" if key == "notice" %>
-      <% key = "error" if key == "alert" %>
-      toastr['<%= key %>']('<%= value %>');
-    <% end %>
-  </script>
-<% end %>

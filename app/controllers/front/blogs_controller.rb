@@ -25,7 +25,7 @@ class Front::BlogsController < ApplicationController
       flash.now[:alert] = e
         .record
         .errors
-        .full_messages
+        .full_messages[0]
       return render :index
     rescue => e
       flash.now[:alert] = '投稿に失敗しました'
