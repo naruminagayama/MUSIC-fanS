@@ -1,4 +1,4 @@
-App.community = App.cable.subscriptions.create { channel: "CommunityChannel", room: location.pathname.match(/\d+/)[0] },
+App.community = App.cable.subscriptions.create { channel: "CommunityChannel", room: "1" },
   connected: ->
     # Called when the subscription is ready for use on the server
 

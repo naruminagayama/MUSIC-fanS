@@ -25,12 +25,7 @@ $(function() {
   });
 });
 
-
-
   var search_list = $(".contents.row");
-
-
-
   function appendArtist(artist) {
 
     var html = `
