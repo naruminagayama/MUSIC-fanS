@@ -4,7 +4,7 @@ class MessageBroadcastJob < ApplicationJob
   def perform(chat, current_customer_id)
     # Do something later
     ActionCable.server.broadcast(
-      "community_channel_#{chat.community_id}",
+      "community_channel",
       message: render_message(chat, current_customer_id),
       publisher: chat.customer.id.to_s
     )

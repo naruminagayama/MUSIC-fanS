@@ -1,4 +1,4 @@
-App.community = App.cable.subscriptions.create { channel: "CommunityChannel", room: "1" },
+App.community = App.cable.subscriptions.create { channel: "CommunityChannel" },
   connected: ->
     # Called when the subscription is ready for use on the server
 
@@ -20,6 +20,6 @@ App.community = App.cable.subscriptions.create { channel: "CommunityChannel", ro
 
 $(document).on 'keypress', '#chat', '[data-behavior~=room_speaker]', (event) ->
   if event.keyCode is 13
-    App.community.speak event.target.value
+    App.community.speak [event.target.value, $('[data-room]').attr('data-room')]
     event.target.value = ''
     event.preventDefault()
