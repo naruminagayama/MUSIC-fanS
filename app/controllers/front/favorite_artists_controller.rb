@@ -1,7 +1,7 @@
 class Front::FavoriteArtistsController < ApplicationController
 
   before_action :authenticate_customer!
-  before_action :artist_params, only: [:create, :destroy]
+  before_action :find_artist, only: [:create, :destroy]
 
   def create
     favorite_artist = current_customer.favorite_artists.new(artist_id: @artist.id)
@@ -41,7 +41,7 @@ class Front::FavoriteArtistsController < ApplicationController
 
   private
   
-  def artist_params
+  def find_artist
     @artist = Artist.find(params[:artist_id])
   end
 

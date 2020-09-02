@@ -1,7 +1,7 @@
 class Front::CustomersController < ApplicationController
 
   before_action :authenticate_customer!
-  before_action :customer_find, only: [:show, :edit, :update, :destroy, :follower,
+  before_action :find_customer, only: [:show, :edit, :update, :destroy, :follower,
                                        :followed, :favoriteartist, :favoritesong, :blog]
 
   def show
@@ -42,7 +42,7 @@ class Front::CustomersController < ApplicationController
                                      :email, :nickname, :image_id, :password, :password_confirmation)
   end
 
-  def customer_find
+  def find_customer
     @customer = Customer.find(params[:id])
   end
 

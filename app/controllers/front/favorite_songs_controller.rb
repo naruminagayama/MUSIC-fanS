@@ -1,7 +1,7 @@
 class Front::FavoriteSongsController < ApplicationController
 
   before_action :authenticate_customer!
-  before_action :song_params, only: [:create, :destroy]
+  before_action :find_song, only: [:create, :destroy]
 
   def create
     favorite_song = current_customer.favorite_songs.new(song_id: @song.id)
@@ -41,7 +41,7 @@ class Front::FavoriteSongsController < ApplicationController
 
   private
 
-  def song_params
+  def find_song
     @song = Song.find(params[:song_id])
   end
 

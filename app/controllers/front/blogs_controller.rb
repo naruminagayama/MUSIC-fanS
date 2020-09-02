@@ -1,7 +1,7 @@
 class Front::BlogsController < ApplicationController
 
   before_action :authenticate_customer!
-  before_action :blog_find, only: [:edit, :update, :destroy]
+  before_action :find_blog, only: [:edit, :update, :destroy]
 
   def index
     @customer = current_customer
@@ -80,7 +80,7 @@ class Front::BlogsController < ApplicationController
     params.require(:blog).permit(:title, :content, :image_id, :start_time)
   end
 
-  def blog_find
+  def find_blog
     @blog = Blog.find(params[:id])
   end
 
