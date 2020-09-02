@@ -13,5 +13,5 @@
     <div class="bottom-item">
     <%= paginate @chats %>
     <%= image_tag "write.png" %>
-    <input type="text" name="chat" id="chat" data-behavior="room_speaker" data-room="<%= @community.id %>">
+    <%= text_field_tag :chat %>
     </div>
