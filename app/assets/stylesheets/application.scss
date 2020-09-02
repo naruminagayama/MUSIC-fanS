@@ -27,10 +27,58 @@
  @import url(https://fonts.googleapis.com/css?family=Chewy);
  @import url(https://fonts.googleapis.com/css?family=Bitter);
 
+ /* topページ枠 全体 */
+
+ .html_home:before,
+ .body_home:before,
+ .body_home:after {
+   content: "";
+   background: black;
+   position: fixed;
+   display: block;
+   z-index: 1;
+ }
+
+ /* topページ枠 上 */
+
+ .html_home:before {
+   height: 10px; 
+   width: 100vw;
+   left: 0;
+   top: 0;
+ }
+
+ /* topページ枠 右 */
+
+ .html_home:after {
+   width: 10px;
+   height: 100vh;
+   right: 0;
+   top: 0;
+ }
+
+ /* topページ枠 下 */
+
+ .body_home:before {
+   height: 10px;
+   width: 100vw;
+   bottom: 0;
+   left: 0;
+ }
+
+ /* topページ枠 左 */
+
+ .body_home:after {
+   width: 10px;
+   height: 100vh;
+   top: 0;
+   left: 0;
+ }
+
  .bg_slider {
    width: 100%;
    height: 100%;
-   background-color: rgba(0, 0, 0, 0.2);
+   background-color: rgba(0, 0, 0, 0.5);
   }
 
  .bg_slider1 {
@@ -63,26 +111,25 @@
  .top_title {
    font-weight: 700;
    font-size: 70px;
-   letter-spacing: 0.05em;
+   letter-spacing: 1em;
    color: #fff;
    font-weight: bold;
-   text-shadow: 1px 5px 5px #000;
  }
 
  .top_text1 {
    text-align: left;
    font-weight: bold;
    font-size: 20px;
+   letter-spacing: 0.5em;
    color: #fff;
-   text-shadow: 1px 1px 1px #000;
  }
 
  .top_text2 {
    text-align: right;
    font-weight: bold;
    font-size: 20px;
+   letter-spacing: 0.5em;
    color: #fff;
-   text-shadow: 1px 1px 1px #000;
  }
 
  /* topページ aboutボタン */

@@ -18,7 +18,7 @@ App.community = App.cable.subscriptions.create { channel: "CommunityChannel", ro
   speak: (message) ->
     @perform 'speak', message: message
 
-$(document).on 'keypress', '#chat', (event) ->
+$(document).on 'keypress', '#chat', '[data-behavior~=room_speaker]', (event) ->
   if event.keyCode is 13
     App.community.speak event.target.value
     event.target.value = ''

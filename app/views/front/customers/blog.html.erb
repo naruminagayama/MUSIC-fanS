@@ -29,37 +29,49 @@
     </div>
   </div>
 
-  <div class="main col-md-9 mypage_main">
-    <div class="content_border mypage_linkwhole">
-      <div align="center">
-        <%= link_to image_tag("heart.png"), front_favoriteartist_path(@customer.id) %>
-          &emsp;<%= link_to "Favorite Artist", front_favoriteartist_path(@customer.id), class: "mypage_link" %>
-        <br>
-        <br>
-        <%= link_to image_tag("heart.png"), front_favoritesong_path(@customer.id) %>
-          &emsp;<%= link_to "Favorite Song", front_favoritesong_path(@customer.id), class: "mypage_link" %>&nbsp;
-        <br>
-        <br>
-        <% if @customer == current_customer %>
-          <%= link_to image_tag("heart.png"), homes_about_path %>
-          &emsp;<%= link_to "Help", homes_about_path, class: "mypage_link" %>
-          &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+  <div class="main col-md-9">
+    <div class="content_border">
+      <% @customer.blogs.each do |blog| %>
+      <div class="blog_<%= blog.id %>">
+        <div class="flex_blog">
+        <% if @customer.image_id? %>
+          <%= image_tag @customer.image_id.url, :size => '70x70', class: 'icon' %>
         <% else %>
-          <%= link_to image_tag("heart.png"), front_blog_path %>
-          &emsp;<%= link_to "Blog", front_blog_path, class: "mypage_link" %>
-          &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+          <%= image_tag "noimage", :size => '70x70', class: 'icon' %>
+        <% end %>
+        <h5><strong><%= blog.title %></strong></h5>
+        <span class="blog_datetime">
+          <%= blog.updated_at.strftime("%Y-%m-%d %H:%M") %>
+        </span>
+        <% if @customer == current_customer %>
+          <span>
+            <%= link_to "編集", edit_front_blog_path(blog.id), remote: true, class: 'btn_blogedit', :style => "color: white;" "text-decoration: none;" %>
+          </span> 
+          <span>     
+            <%= link_to "削除", front_blog_path(id: blog.id), method: :delete, class: 'btn_blogdelete', :style => "color: white;" "text-decoration: none;" %>
+          </span>
+        <% end %>
+        </div>
+        <br>
+        <%= image_tag blog.image_id.url, :size => '320x300' %>
+        <span class="blog_content">
+          <%= blog.content %>
+        </span>
+      </div>
+      <br><br>
+      <% end %>
+      <%= paginate @blogs %>
+
+      <div class="calendar_size">
+        <%= month_calendar events: @blogs do |date, blogs| %>       
+          <%= date.day %>
+          <% blogs.each do |blog| %>
+            <div>
+              <%= link_to blog.title %>
+            </div>
+          <% end %>
         <% end %>
       </div>
     </div>
   </div>
 </div>
-
-<% if flash.any? %>
-  <script type="text/javascript">
-    <% flash.each do |key, value| %>
-      <% key = "success" if key == "notice" %>
-      <% key = "error" if key == "alert" %>
-      toastr['<%= key %>']('<%= value %>');
-    <% end %>
-  </script>
-<% end %>

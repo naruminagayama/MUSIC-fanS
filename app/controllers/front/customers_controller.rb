@@ -2,7 +2,7 @@ class Front::CustomersController < ApplicationController
 
   before_action :authenticate_customer!
   before_action :customer_find, only: [:show, :edit, :update, :destroy, :follower,
-                                       :followed, :favoriteartist, :favoritesong, :blogs]
+                                       :followed, :favoriteartist, :favoritesong, :blog]
 
   def show
   end
@@ -30,9 +30,8 @@ class Front::CustomersController < ApplicationController
   def favoritesong
   end
 
-  def blogs
-    @blogs = Blog.where(customer_id: customer.id)
-                 .order("created_at DESC")
+  def blog
+    @blogs = Blog.order("created_at DESC")
                  .page(params[:page]).per(2)
   end
 
