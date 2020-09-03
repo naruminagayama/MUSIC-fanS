@@ -1,8 +1,12 @@
 <div class="bg_slider3">
+  <br>
+  <br>
   <div align="center">
-    <%= link_to "Login", customer_session_path, class: "btn btn--orange btn--radius btn--cubic" %>
-    <br>
-    <br>
     <%= link_to "Signup", new_customer_registration_path, class: "btn btn--blue btn--radius btn--cubic" %>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <%= link_to "Login", customer_session_path, class: "btn btn--orange btn--radius btn--cubic" %>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <%= link_to 'Guest(閲覧用)', front_guest_sign_in_path, method: :post, class: "btn btn--green btn--radius btn--cubic" %>
   </div>
+  <br>
 </div>

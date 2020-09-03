@@ -10,6 +10,10 @@ Rails.application.routes.draw do
     sessions: 'front/sessions'
   }
 
+  devise_scope :customer do
+    post 'front/guest_sign_in' => 'front/sessions#new_guest'
+  end
+
   root 'homes#top'
   get '/homes/about' => 'homes#about'
 

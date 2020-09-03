@@ -12,7 +12,7 @@ class Customer < ApplicationRecord
   validates :email, presence: true
   validates :nickname, presence: true
   validates :password, presence: true
-  validates :password_confirmation, presence: true
+  validates :password_confirmation, presence: true, unless: :guest?
 
   has_many :blogs
   has_many :chats
@@ -44,6 +44,19 @@ class Customer < ApplicationRecord
     true
   end
 
+  def self.guest
+    find_or_create_by!(last_name: '山田', first_name: '太郎', last_name_kana: 'ヤマダ', first_name_kana: 'タロウ',
+                       email: 'guest@example.com', nickname: 'ゲスト様') do |customer|
+      customer.password = SecureRandom.urlsafe_base64
+    end
+  end
+
   mount_uploader :image_id, ImagesUploader
+
+  private
+
+  def guest?
+    nickname == 'ゲスト様'
+  end
 
 end
