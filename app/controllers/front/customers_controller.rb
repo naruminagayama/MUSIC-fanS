@@ -11,7 +11,17 @@ class Front::CustomersController < ApplicationController
   end
 
   def update
-    @customer.update(customer_params)
+    begin
+      @customer.update!(customer_params)
+    rescue ActiveRecord::RecordInvalid
+      flash.now[:alert] = '登録情報の更新に失敗しました'
+      return render :edit
+    rescue => e
+      flash.now[:alert] = '登録情報の更新に失敗しました'
+      logger.error e
+      return render :edit
+    end
+
     flash[:notice] = '登録情報が更新されました'
     redirect_to front_customer_path(@customer.id)
   end

@@ -21,11 +21,8 @@ class Front::BlogsController < ApplicationController
 
     begin
       @blog.save!
-    rescue ActiveRecord::RecordInvalid => e
-      flash.now[:alert] = e
-        .record
-        .errors
-        .full_messages[0]
+    rescue ActiveRecord::RecordInvalid
+      flash.now[:alert] = '投稿に失敗しました'
       return render :index
     rescue => e
       flash.now[:alert] = '投稿に失敗しました'
@@ -48,13 +45,13 @@ class Front::BlogsController < ApplicationController
 
     begin
       @blog.update!(blog_params)
-    rescue ActiveRecord::RecordInvalid => e
-      flash.now[:alert] = 'タイトルを入力してください'
-      return render :index
+    rescue ActiveRecord::RecordInvalid
+      flash.now[:alert] = '更新に失敗しました'
+      return render :edit
     rescue => e
       flash.now[:alert] = '更新に失敗しました'
       logger.error e
-      return render :index
+      return render :edit
     end
 
     flash[:notice] = '記事が更新されました'
@@ -67,7 +64,7 @@ class Front::BlogsController < ApplicationController
     rescue => e
       flash.now[:alert] = '削除に失敗しました'
       logger.error e
-      return render :edit
+      return render :index
     end
 
     flash[:notice] = '記事が削除されました'
