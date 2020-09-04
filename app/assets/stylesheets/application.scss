@@ -916,6 +916,13 @@
    opacity: 0;
  }
 
+ /* chat 送信時間右側 */
+
+ .is_right span {
+   margin-right: 10px;
+   color: white;
+ }
+
  /* chat message 吹き出し右側 */
 
  .is_right p {
@@ -948,6 +955,13 @@
    border-width: 14px 12px 0 12px;
    border-style: solid;
    border-color: #f9f9f9 transparent transparent transparent;
+ }
+
+ /* chat 送信時間左側 */
+
+ .is_left span {
+   margin-left: 10px;
+   color: white;
  }
 
  /* chat message 吹き出し左側 */

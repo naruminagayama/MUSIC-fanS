@@ -6,12 +6,20 @@
     交流できる場です。（注意：誹謗中傷や無関係の話題などは禁止されています。）
   </h6>
 </div>
-  <br>
-    <div id="chats" data-community_id="<%= @community.id %>" data-current_customer_id="<%= current_customer.id.to_i %>">
-      <%= render @chats %>
-    </div>
-    <div class="bottom-item">
-    <%= paginate @chats %>
-    <%= image_tag "write.png" %>
-    <input type="text" name="chat" id="chat" data-behavior="room_speaker" data-room="<%= @community.id %>">
-    </div>
+<br>
+<br>
+
+<div id="chats" data-community_id="<%= @community.id %>" data-current_customer_id="<%= current_customer.id.to_i %>">
+  <%= render @chats %>
+</div>
+<br>
+
+<div align="left">
+  <%= paginate @chats %>
+</div>
+
+<div align="center">
+  <%= image_tag "write.png" %>
+  <input type="text" name="chat" id="chat" data-behavior="room_speaker" data-room="<%= @community.id %>">
+</div>
+<br>

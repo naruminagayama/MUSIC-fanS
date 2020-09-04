@@ -1,6 +1,7 @@
 <div class="chat">
   <% div_class = chat.customer.id == current_customer.id.presence ? 'is_right' : 'is_left' %>
   <div class="<%= div_class %>">
+    <span><%= chat.updated_at.strftime("%m/%d %H:%M") %></span>
     <p class="chat_message"><%= chat.message %></p>
     <div class="flex">
       <div>
