@@ -1,13 +1,18 @@
 class Front::CustomersController < ApplicationController
 
   before_action :authenticate_customer!
-  before_action :find_customer, only: [:show, :edit, :update, :destroy, :follower,
-                                       :followed, :favoriteartist, :favoritesong, :blog]
+  before_action :find_customer, only: [:show, :edit, :update, :destroy, :follower, :followed,
+                                       :favoriteartist, :favoritesong, :customerblog]
 
   def show
   end
 
   def edit
+    if @customer == current_customer
+      render :edit
+    else
+      redirect_to front_customer_path(current_customer)
+    end
   end
 
   def update
@@ -40,8 +45,9 @@ class Front::CustomersController < ApplicationController
   def favoritesong
   end
 
-  def blog
-    @blogs = Blog.order("created_at DESC")
+  def customerblog
+    @blogs = Blog.where(customer_id: find_customer)
+                 .order("created_at DESC")
                  .page(params[:page]).per(2)
   end
 
