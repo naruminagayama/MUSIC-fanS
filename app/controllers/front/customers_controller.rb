@@ -8,7 +8,7 @@ class Front::CustomersController < ApplicationController
   end
 
   def edit
-    if @customer == current_customer
+    if @customer.id == current_customer.id
       render :edit
     else
       redirect_to front_customer_path(current_customer)
@@ -16,6 +16,8 @@ class Front::CustomersController < ApplicationController
   end
 
   def update
+    if @customer.id == current_customer.id
+
     begin
       @customer.update!(customer_params)
     rescue ActiveRecord::RecordInvalid
@@ -29,6 +31,10 @@ class Front::CustomersController < ApplicationController
 
     flash[:notice] = '登録情報が更新されました'
     redirect_to front_customer_path(@customer.id)
+
+    else
+      redirect_to front_customer_path(current_customer)
+    end
   end
 
   def follower
