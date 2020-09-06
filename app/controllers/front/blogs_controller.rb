@@ -46,12 +46,13 @@ class Front::BlogsController < ApplicationController
     begin
       @blog.update!(blog_params)
     rescue ActiveRecord::RecordInvalid
-      flash.now[:alert] = '更新に失敗しました'
-      return render :edit
+      flash[:alert] = '更新に失敗しました'
+      return redirect_to front_blogs_path
     rescue => e
       flash.now[:alert] = '更新に失敗しました'
       logger.error e
-      return render :edit
+      @blog = Blog.new
+      return render :index
     end
 
     flash[:notice] = '記事が更新されました'
@@ -80,6 +81,5 @@ class Front::BlogsController < ApplicationController
   def find_blog
     @blog = Blog.find(params[:id])
   end
-
 
 end

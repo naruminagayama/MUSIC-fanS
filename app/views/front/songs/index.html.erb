@@ -1,14 +1,29 @@
 <div align="center">
+
   <%= form_with(url: search_front_songs_path, local: true, method: :get, class: "search-form") do |form| %>
     <%= form.text_field :keyword, placeholder: "楽曲を検索する", class: "search-input" %>
     <%= form.submit "検索", class: "search-btn" %>
   <% end %>
+
   <div class="content2s">
     <div class="row"></div>
   </div>
   <br>
 
+  <div class="flex">
+    <%= link_to "JPOP", '/front/songs?genre_id=1', class: 'genre1_link', :style=>"color: #333333; text-decoration: none;" %>
+    <%= link_to "洋楽", '/front/songs?genre_id=2', class: 'genre2_link', :style=>"color: #333333; text-decoration: none;" %>
+    <%= link_to "ロック", '/front/songs?genre_id=3', class: 'genre3_link', :style=>"color: #333333; text-decoration: none;" %>
+    <%= link_to "EDM", '/front/songs?genre_id=4', class: 'genre4_link', :style=>"color: #333333; text-decoration: none;" %>
+    <%= link_to "レゲエ", '/front/songs?genre_id=5', class: 'genre5_link', :style=>"color: #333333; text-decoration: none;" %>
+    <%= link_to "アニメソング", '/front/songs?genre_id=6', class: 'genre6_link', :style=>"color: #333333; text-decoration: none;" %>
+    <%= link_to "ゲームソング", '/front/songs?genre_id=7', class: 'genre7_link', :style=>"color: #333333; text-decoration: none;" %>
+  </div>
+  <br>
+  <br>
+
   <div class="content_border">
+
     <h3 class="ranking_label"><span>Best SONG Ranking</span></h3>
       <% lastFavoriteSong = 0 %>
       <% j = 1 %>
@@ -25,6 +40,7 @@
             </div>
             <br>
             <br>
+
             <% if j == 1 %>
               <span class="best1_label">BEST <%= j %></span>
             <% elsif j == 2 %>
@@ -34,6 +50,7 @@
             <% end %>
             <br>
             <br>
+
             <strong><%= link_to song.name, front_song_path(song.id) %></strong>
             <br>
             お気に入り数：<%= song.favorite_songs.count %>
@@ -45,6 +62,7 @@
             </div>           
             <br>
             <br>
+
             <% if j == 1 %>
               <span class="best1_label">BEST <%= j %></span>
             <% elsif j == 2 %>
@@ -54,6 +72,7 @@
             <% end %>
             <br>
             <br>
+
             <strong><%= link_to song.name, front_song_path(song.id) %></strong>
             <br>
             お気に入り数：<%= song.favorite_songs.count %>
@@ -67,6 +86,7 @@
       <div class="ribbon_content">
       <span class="ribbon">NEW</span>
       </div>
+
       <strong>New SONG</strong><p>注目の新着楽曲</p>
       <div id="new_songs">
         <%= render :partial => "new_songs" %>
@@ -84,7 +104,9 @@
       <i class="fas fa-star fa_small"></i>
       <i class="fas fa-star fa_small"></i>
     </h3>
+
     <div id="songs">
       <%= render :partial => "songs" %>
     </div>
+
 </div>

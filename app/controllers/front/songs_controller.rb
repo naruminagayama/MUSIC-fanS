@@ -10,6 +10,12 @@ class Front::SongsController < ApplicationController
       format.html
       format.js
     end
+
+    if params[:genre_id]
+      @genre = Genre.find(params[:genre_id])
+      @songs = @genre.songs.page(params[:page]).per(6).order(created_at: :desc).all
+      render :genre_songs
+    end
   end
 
   def show
