@@ -26,12 +26,12 @@ class Customer < ApplicationRecord
   has_many :follower_customer, through: :followed, source: :follower # 自分をフォローしている人
 
   # ユーザーをフォローする
-  def follow(customer_id)
+  def follow!(customer_id)
     follower.create(followed_id: customer_id)
   end
 
   # ユーザーのフォローを外す
-  def unfollow(customer_id)
+  def unfollow!(customer_id)
     follower.find_by(followed_id: customer_id).destroy
   end
 

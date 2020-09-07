@@ -2,7 +2,7 @@ class Front::RelationshipsController < ApplicationController
 
   def follow
     begin
-      current_customer.follow(params[:id])
+      current_customer.follow!(params[:id])
     rescue => e
       flash.now[:alert] = 'ユーザーのフォローに失敗しました'
       logger.error e
@@ -15,7 +15,7 @@ class Front::RelationshipsController < ApplicationController
 
   def unfollow
     begin
-      current_customer.unfollow(params[:id])
+      current_customer.unfollow!(params[:id])
     rescue => e
       flash.now[:alert] = 'フォローの解除に失敗しました'
       logger.error e
