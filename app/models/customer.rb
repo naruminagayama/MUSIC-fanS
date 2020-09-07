@@ -27,24 +27,12 @@ class Customer < ApplicationRecord
 
   # ユーザーをフォローする
   def follow(customer_id)
-    begin
-      follower.create!(followed_id: customer_id)
-    rescue => e
-      flash.now[:alert] = 'ユーザーのフォローに失敗しました'
-      logger.error e
-      return redirect_to request.referer
-    end
+    follower.create(followed_id: customer_id)
   end
 
   # ユーザーのフォローを外す
   def unfollow(customer_id)
-    begin
-      follower.find_by(followed_id: customer_id).destroy!
-    rescue => e
-      flash.now[:alert] = 'フォローの解除に失敗しました'
-      logger.error e
-      return redirect_to request.referer
-    end
+    follower.find_by(followed_id: customer_id).destroy
   end
 
   # フォローしていればtrueを返す
