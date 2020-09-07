@@ -1,6 +1,5 @@
 class Front::FavoriteArtistsController < ApplicationController
 
-  before_action :authenticate_customer!
   before_action :find_artist, only: [:create, :destroy]
 
   def create

@@ -1,6 +1,5 @@
 class Front::BlogsController < ApplicationController
 
-  before_action :authenticate_customer!
   before_action :find_blog, only: [:edit, :update, :destroy]
 
   def index

@@ -1,6 +1,5 @@
 class Front::CustomersController < ApplicationController
 
-  before_action :authenticate_customer!
   before_action :find_customer, only: [:show, :edit, :update, :destroy, :follower, :followed,
                                        :favoriteartist, :favoritesong, :customerblog]
 

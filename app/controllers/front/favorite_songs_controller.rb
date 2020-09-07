@@ -1,6 +1,5 @@
 class Front::FavoriteSongsController < ApplicationController
 
-  before_action :authenticate_customer!
   before_action :find_song, only: [:create, :destroy]
 
   def create

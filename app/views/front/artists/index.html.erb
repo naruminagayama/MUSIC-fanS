@@ -1,6 +1,6 @@
 <div align="center">
   <%= form_with(url: search_front_artists_path, local: true, method: :get, class: "search-form") do |f| %>
-    <%= f.text_field :keyword, placeholder: "アーティストを検索する", class: "artistsearch_input", :size=> "20" %>
+    <%= f.text_field :keyword, placeholder: "アーティストを検索する", class: "artistsearch_input", :size => "20" %>
     <%= button_tag type: :submit, class: "search_btn" do %>
       <%= image_tag "search.png" %>
     <% end %>

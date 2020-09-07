@@ -2,9 +2,11 @@
 
   <h3>アーティスト一覧</h3>
 
-<%= form_with(url: search_front_artists_path, local: true, method: :get, class: "search-form") do |form| %>
-  <%= form.text_field :keyword, placeholder: "アーティストを検索する", class: "artistsearch_input",:size=>"10" %>
-  <%= form.submit "検索", class: "search-btn" %>
+<%= form_with(url: search_front_artists_path, local: true, method: :get, class: "search-form") do |f| %>
+  <%= f.text_field :keyword, placeholder: "アーティストを検索する", class: "artistsearch_input" %>
+  <%= button_tag type: :submit, class: "search_btn" do %>
+    <%= image_tag "search.png" %>
+  <% end %>
 <% end %>
 <div class="contents">
   <div class="row"></div>
@@ -25,11 +27,9 @@
   <div class="artist_<%= artist.id %>">
     <%= render 'front/artists/favorite', artist: artist, locals: {artist: artist} %>
   </div>
-  
 
 	  </div>
     </div>
   <% end %>
   <% end %>
-
 </div>

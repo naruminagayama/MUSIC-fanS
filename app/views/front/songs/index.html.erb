@@ -1,8 +1,9 @@
 <div align="center">
-
-  <%= form_with(url: search_front_songs_path, local: true, method: :get, class: "search-form") do |form| %>
-    <%= form.text_field :keyword, placeholder: "楽曲を検索する", class: "search-input" %>
-    <%= form.submit "検索", class: "search-btn" %>
+  <%= form_with(url: search_front_songs_path, local: true, method: :get, class: "search-form") do |f| %>
+    <%= f.text_field :keyword, placeholder: "楽曲を検索する", class: "search-input", :size => "20" %>
+    <%= button_tag type: :submit, class: "search_btn" do %>
+      <%= image_tag "search.png" %>
+    <% end %>
   <% end %>
 
   <div class="content2s">

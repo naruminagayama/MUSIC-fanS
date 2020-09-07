@@ -23,3 +23,13 @@
   <input type="text" name="chat" id="chat" data-behavior="room_speaker" data-room="<%= @community.id %>">
 </div>
 <br>
+
+<% if flash.any? %>
+  <script type="text/javascript">
+    <% flash.each do |key, value| %>
+      <% key = "success" if key == "notice" %>
+      <% key = "error" if key == "alert" %>
+      toastr['<%= key %>']('<%= value %>');
+    <% end %>
+  </script>
+<% end %>

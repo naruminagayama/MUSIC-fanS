@@ -1,7 +1,5 @@
 class Front::ArtistsController < ApplicationController
 
-  before_action :authenticate_customer!
-
   def index
     @artists = Artist.all.page(params[:page]).per(6)
     @all_ranks = Artist.find(FavoriteArtist.group(:artist_id).order('count(artist_id) desc').limit(3).pluck(:artist_id))

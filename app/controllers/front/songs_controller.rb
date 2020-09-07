@@ -1,7 +1,5 @@
 class Front::SongsController < ApplicationController
 
-  before_action :authenticate_customer!
-
   def index
     @songs = Song.all.page(params[:page]).per(6)
     @all_ranks = Song.find(FavoriteSong.group(:song_id).order('count(song_id) desc').limit(3).pluck(:song_id))

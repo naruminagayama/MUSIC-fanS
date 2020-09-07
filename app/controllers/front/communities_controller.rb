@@ -1,7 +1,5 @@
 class Front::CommunitiesController < ApplicationController
 
-  before_action :authenticate_customer!
-
   def index
     @communities = Community.all.order("name DESC")
   end
