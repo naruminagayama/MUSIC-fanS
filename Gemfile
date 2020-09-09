@@ -90,3 +90,5 @@ gem 'coffee-script-source'
 
 gem 'toastr-rails'
 gem 'rails-i18n'
+
+gem 'rakuten_web_service'
