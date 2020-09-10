@@ -8,11 +8,6 @@ class CommunityChannel < ApplicationCable::Channel
   end
   
   def speak(data)
-  	begin
-      Chat.created_via_speak(data, params, current_customer.id)
-    rescue => e
-      logger.error e
-      return
-    end
+    Chat.created_via_speak(data, params, current_customer.id)
   end
 end

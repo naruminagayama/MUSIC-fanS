@@ -1547,3 +1547,23 @@
    border-radius: 100vh;
    box-shadow: 3px 3px 0 yellow;
  }
+
+ /* chat Flashメッセージ */
+
+ #flash-notice {
+   width: 100%;
+   height: 28px;
+   position: absolute;
+   top: 50px;
+   left: 0;
+   text-align: center;
+   margin: auto;
+   background-color: #FFEFEF;
+   border:1px solid #D4440D;
+   display: none;
+ }
+
+ #flash-message {
+   color: #C25338;
+   top: 50px;
+ }

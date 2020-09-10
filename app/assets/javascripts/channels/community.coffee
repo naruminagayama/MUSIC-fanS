@@ -8,8 +8,12 @@ App.community = App.cable.subscriptions.create { channel: "CommunityChannel" },
   received: (data) ->
     e = document.getElementById 'chats'
     current_customer = e.dataset.current_customer_id
-    publisher = data['publisher']   
-    $('#chats').append(data["message"])
+    publisher = data['publisher']
+    if data["chat"] != ""
+      $('#chats').append(data["message"])
+    else
+      $('#flash-notice').show()
+      $('#flash-notice').append('<p id="flash-message" style="position: relative; top: -24px;">メッセージの入力がないため、送信できませんでした</p>')
 
     if publisher isnt current_customer
       lastChild = $('#chats')[0].lastElementChild

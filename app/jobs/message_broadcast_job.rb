@@ -6,7 +6,8 @@ class MessageBroadcastJob < ApplicationJob
     ActionCable.server.broadcast(
       "community_channel",
       message: render_message(chat, current_customer_id),
-      publisher: chat.customer.id.to_s
+      publisher: chat.customer.id.to_s,
+      chat: chat.message
     )
   end
 
