@@ -34,15 +34,12 @@ class Front::BlogsController < ApplicationController
   end
 
   def edit
-    if @blog.customer.id == current_customer.id
-      render :edit
-    else
-      redirect_to front_blogs_path
-    end
+    return redirect_to front_blogs_path if @blog.customer_id != current_customer.id
+    render :edit
   end
 
   def update
-    if @blog.customer.id == current_customer.id
+    return redirect_to front_blogs_path if @blog.customer_id != current_customer.id
 
     @customer = current_customer
     @blogs = Blog.where(customer_id: current_customer.id)
@@ -63,15 +60,11 @@ class Front::BlogsController < ApplicationController
 
     flash[:notice] = '記事が更新されました'
     redirect_to front_blogs_path
-
-    else
-      redirect_to front_blogs_path
-    end
   end
 
   def destroy
-    if @blog.customer.id == current_customer.id
-    
+    return redirect_to front_blogs_path if @blog.customer_id != current_customer.id
+
     begin
       @blog.destroy!
     rescue => e
@@ -82,10 +75,6 @@ class Front::BlogsController < ApplicationController
 
     flash[:notice] = '記事が削除されました'
     redirect_to front_blogs_path
-
-    else
-      redirect_to front_blogs_path
-    end
   end
 
   private

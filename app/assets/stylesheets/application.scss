@@ -604,114 +604,149 @@
  /* ジャンル別 リンクボタン */
 
  .genre1_link {
-   padding: 0.5em 1em;
+   position: relative;
    display: inline-block;
-   line-height: 1.3;
-   background: #ffbeda;
-   vertical-align: middle;
-   border-radius: 25px 0px 0px 25px;
+   padding: 0.25em 1em;
    margin-right: 23px;
+   text-decoration: none;
+   color: #00BCD4;
+   background-color: #ffbeda;
+   box-shadow: inset 0 2px 0 rgba(255,255,255,0.2);
+   border-bottom: solid 2px #118e9e;
+   border-radius: 4px;
+   font-weight: bold;
+   text-shadow: -1px -1px rgba(255, 255, 255, 0.44), 1px 1px rgba(0, 0, 0, 0.38);
  }
 
- .genre1_link:before {
-   content: '●';
-   color: white;
-   margin-right: 8px;
+ .genre1_link:active {
+   border-bottom: solid 2px #00BCD4;
+   box-shadow: none;
+   text-shadow: -1px -1px rgba(255, 255, 255, 0.3), 1px 1px rgba(0, 0, 0, 0.3);
  }
 
  .genre2_link {
-   padding: 0.5em 1em;
+   position: relative;
    display: inline-block;
-   line-height: 1.3;
-   background: #5d99ff;
-   vertical-align: middle;
-   border-radius: 25px 0px 0px 25px;
+   padding: 0.25em 1em;
    margin-right: 23px;
+   text-decoration: none;
+   color: #00BCD4;
+   background-color: #00BCD4;
+   box-shadow: inset 0 2px 0 rgba(255,255,255,0.2);
+   border-bottom: solid 2px #118e9e;
+   border-radius: 4px;
+   font-weight: bold;
+   text-shadow: -1px -1px rgba(255, 255, 255, 0.44), 1px 1px rgba(0, 0, 0, 0.38);
  }
 
- .genre2_link:before {
-   content: '●';
-   color: white;
-   margin-right: 8px;
+ .genre2_link:active {
+   border-bottom: solid 2px #00BCD4;
+   box-shadow: none;
+   text-shadow: -1px -1px rgba(255, 255, 255, 0.3), 1px 1px rgba(0, 0, 0, 0.3);
  }
 
  .genre3_link {
-   padding: 0.5em 1em;
+   position: relative;
    display: inline-block;
-   line-height: 1.3;
-   background: #c0c0c0;
-   vertical-align: middle;
-   border-radius: 25px 0px 0px 25px;
+   padding: 0.25em 1em;
    margin-right: 23px;
+   text-decoration: none;
+   color: #00BCD4;
+   background-color: #c0c0c0;
+   box-shadow: inset 0 2px 0 rgba(255,255,255,0.2);
+   border-bottom: solid 2px #118e9e;
+   border-radius: 4px;
+   font-weight: bold;
+   text-shadow: -1px -1px rgba(255, 255, 255, 0.44), 1px 1px rgba(0, 0, 0, 0.38);
  }
 
- .genre3_link:before {
-   content: '●';
-   color: white;
-   margin-right: 8px;
+ .genre3_link:active {
+   border-bottom: solid 2px #00BCD4;
+   box-shadow: none;
+   text-shadow: -1px -1px rgba(255, 255, 255, 0.3), 1px 1px rgba(0, 0, 0, 0.3);
  }
 
  .genre4_link {
-   padding: 0.5em 1em;
+   position: relative;
    display: inline-block;
-   line-height: 1.3;
-   background: #cc99ff;
-   vertical-align: middle;
-   border-radius: 25px 0px 0px 25px;
+   padding: 0.25em 1em;
    margin-right: 23px;
+   text-decoration: none;
+   color: #00BCD4;
+   background-color: #cc99ff;
+   box-shadow: inset 0 2px 0 rgba(255,255,255,0.2);
+   border-bottom: solid 2px #118e9e;
+   border-radius: 4px;
+   font-weight: bold;
+   text-shadow: -1px -1px rgba(255, 255, 255, 0.44), 1px 1px rgba(0, 0, 0, 0.38);
  }
 
- .genre4_link:before {
-   content: '●';
-   color: white;
-   margin-right: 8px;
+ .genre4_link:active {
+   border-bottom: solid 2px #00BCD4;
+   box-shadow: none;
+   text-shadow: -1px -1px rgba(255, 255, 255, 0.3), 1px 1px rgba(0, 0, 0, 0.3);
  }
 
  .genre5_link {
-   padding: 0.5em 1em;
+   position: relative;
    display: inline-block;
-   line-height: 1.3;
-   background: #99ffcc;
-   vertical-align: middle;
-   border-radius: 25px 0px 0px 25px;
+   padding: 0.25em 1em;
    margin-right: 23px;
+   text-decoration: none;
+   color: #00BCD4;
+   background-color: #99ffcc;
+   box-shadow: inset 0 2px 0 rgba(255,255,255,0.2);
+   border-bottom: solid 2px #118e9e;
+   border-radius: 4px;
+   font-weight: bold;
+   text-shadow: -1px -1px rgba(255, 255, 255, 0.44), 1px 1px rgba(0, 0, 0, 0.38);
  }
 
- .genre5_link:before {
-   content: '●';
-   color: white;
-   margin-right: 8px;
+ .genre5_link:active {
+   border-bottom: solid 2px #00BCD4;
+   box-shadow: none;
+   text-shadow: -1px -1px rgba(255, 255, 255, 0.3), 1px 1px rgba(0, 0, 0, 0.3);
  }
 
  .genre6_link {
-   padding: 0.5em 1em;
+   position: relative;
    display: inline-block;
-   line-height: 1.3;
-   background: #ffff99;
-   vertical-align: middle;
-   border-radius: 25px 0px 0px 25px;
+   padding: 0.25em 1em;
    margin-right: 23px;
+   text-decoration: none;
+   color: #00BCD4;
+   background-color: #ffff99;
+   box-shadow: inset 0 2px 0 rgba(255,255,255,0.2);
+   border-bottom: solid 2px #118e9e;
+   border-radius: 4px;
+   font-weight: bold;
+   text-shadow: -1px -1px rgba(255, 255, 255, 0.44), 1px 1px rgba(0, 0, 0, 0.38);
  }
 
- .genre6_link:before {
-   content: '●';
-   color: white;
-   margin-right: 8px;
+ .genre6_link:active {
+   border-bottom: solid 2px #00BCD4;
+   box-shadow: none;
+   text-shadow: -1px -1px rgba(255, 255, 255, 0.3), 1px 1px rgba(0, 0, 0, 0.3);
  }
 
  .genre7_link {
-   padding: 0.5em 1em;
+   position: relative;
    display: inline-block;
-   line-height: 1.3;
-   background: #ff9999;
-   vertical-align: middle;
-   border-radius: 25px 0px 0px 25px;
+   padding: 0.25em 1em;
+   text-decoration: none;
+   color: #00BCD4;
+   background-color: #ff9999;
+   box-shadow: inset 0 2px 0 rgba(255,255,255,0.2);
+   border-bottom: solid 2px #118e9e;
+   border-radius: 4px;
+   font-weight: bold;
+   text-shadow: -1px -1px rgba(255, 255, 255, 0.44), 1px 1px rgba(0, 0, 0, 0.38);
  }
 
- .genre7_link:before {
-   content: '●';
-   color: white;
-   margin-right: 8px;
+ .genre7_link:active {
+   border-bottom: solid 2px #00BCD4;
+   box-shadow: none;
+   text-shadow: -1px -1px rgba(255, 255, 255, 0.3), 1px 1px rgba(0, 0, 0, 0.3);
  }
 
  /* ジャンル名 見出し */

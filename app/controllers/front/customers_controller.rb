@@ -7,15 +7,12 @@ class Front::CustomersController < ApplicationController
   end
 
   def edit
-    if @customer.id == current_customer.id
-      render :edit
-    else
-      redirect_to front_customer_path(current_customer)
-    end
+    return redirect_to front_customer_path(current_customer) if @customer.id != current_customer.id
+    render :edit
   end
 
   def update
-    if @customer.id == current_customer.id
+    return redirect_to front_customer_path(current_customer) if @customer.id != current_customer.id
 
     begin
       @customer.update!(customer_params)
@@ -30,10 +27,6 @@ class Front::CustomersController < ApplicationController
 
     flash[:notice] = '登録情報が更新されました'
     redirect_to front_customer_path(@customer.id)
-
-    else
-      redirect_to front_customer_path(current_customer)
-    end
   end
 
   def follower
