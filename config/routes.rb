@@ -36,7 +36,11 @@ Rails.application.routes.draw do
       end
       resource :favorite_songs, only: [:create, :destroy]
     end
-    resources :communities, only: [:index, :show]
+    resources :communities, only: [:index, :show] do
+      collection do
+        get 'favorite_index'
+      end
+    end
     resources :blogs, except: [:new, :show]
     post 'follow/:id' => 'relationships#follow', as: 'follow' # フォローする
     post 'unfollow/:id' => 'relationships#unfollow', as: 'unfollow' # フォロー外す

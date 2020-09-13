@@ -2,6 +2,17 @@
   <div class="content_border">
     <h3>Community List</h3>
     <br>
+
+      <div class="favorite_index">
+        <span>
+          <%= link_to favorite_index_front_communities_path do %>
+            お気に入りアーティストのコミュニティ<i class="fas fa-arrow-circle-right fa-fw"></i>
+          <% end %>
+        </span>
+      </div>
+      <br>
+      <br>
+
       <div class="flex">
       	<div class="community_list">
         <% @communities.each do |community| %>	     

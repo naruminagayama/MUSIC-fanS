@@ -1191,6 +1191,73 @@
    opacity: 0;
  }
 
+ /* お気に入りアーティスト コミュニティ一覧 リンクボタン */
+
+ .favorite_index {
+   display: inline-block;
+   position: relative;
+   width: 400px;
+   padding: 0.8em;
+   text-align: center;
+   text-decoration: none;
+   color: #1B1B1B;
+   background: #fff;
+   border-radius: 30px;
+   border:1px solid #1B1B1B;
+   transition: transform ease .3s;
+ }
+
+ .favorite_index:hover {
+   cursor: pointer;
+   text-decoration: none;
+ }
+
+ .favorite_index span {
+   display: inline-block;
+   text-decoration: none;  
+   transition: transform ease .3s;
+ }
+
+ .favorite_index:hover span{
+   cursor: pointer;
+   text-decoration: none;
+   transform: translateX(6px);
+ }
+
+ /* お気に入りアーティスト コミュニティ一覧 見出し */
+
+ .favorite_index_headline {
+   position: relative;
+   width: 60%;
+   padding: 0.5em 0.5em 0.5em 1.5em;
+   margin: 10px 0 25px 0;
+   line-height: 1.4;
+   color: #ff5192;
+   border-top: dotted 1px gray;
+   border-bottom: dotted 1px gray;
+   background: #fffff4;
+ }
+
+ .favorite_index_headline:before {
+   font-family: "Font Awesome 5 Free";
+   content: "\f138";
+   font-weight: 900;
+   position: absolute;
+   font-size: 1em;
+   left: 0.25em;
+   top: 0.5em;
+   color: #ff5192;
+ }
+
+ /* お気に入りアーティスト コミュニティ一覧 box */
+
+ .favorite_index_box {
+   border: solid 2px #333333;
+   border-radius: 1em;
+   padding: 10px;
+   margin: 10px;
+ }
+
  /* chat 送信時間右側 */
 
  .is_right span {

@@ -9,4 +9,7 @@ class Front::CommunitiesController < ApplicationController
     @chats = @community.chats.includes(:customer).page(params[:page]).per(10)
   end
 
+  def favorite_index
+  end
+
 end
