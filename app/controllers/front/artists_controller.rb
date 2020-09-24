@@ -12,6 +12,7 @@ class Front::ArtistsController < ApplicationController
 
   def show
     @artist = Artist.find(params[:id])
+    @items = RakutenWebService::Ichiba::Item.search(keyword: @artist.name, genreId: '101311')
   end
 
   def search

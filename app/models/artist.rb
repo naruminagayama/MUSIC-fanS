@@ -8,5 +8,5 @@ class Artist < ApplicationRecord
   def favorited_by?(customer)
     favorite_artists.where(customer_id: customer.id).exists?
   end
-  
+
 end

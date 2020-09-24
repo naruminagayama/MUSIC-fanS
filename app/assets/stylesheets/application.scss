@@ -1061,6 +1061,20 @@
    display: block;
  }
 
+/* アーティスト詳細 楽天商品一覧見出し */
+
+ .artistshow_rakutenlist {
+   width :20%;
+   color: white;
+   background-color: #fcd98f;
+   border-bottom: solid 6px #df9700;
+   border-radius: 10px;
+   box-shadow: 0 4px 5px rgba(0, 0, 0, .4);
+   padding: 10px;
+   margin-left: 1em;
+   text-align: center;
+ }
+
 /* 楽曲詳細 楽曲名見出し */
 
  label.btn_songname {
