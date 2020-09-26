@@ -16,10 +16,16 @@
       <div class="flex">
       	<div class="community_list">
         <% @communities.each do |community| %>	     
-          <a href="/front/communities/<%= community.id %>" class="btn btn_detail_square"><span><%= community.name %></span></a>&emsp;
+          <a href="/front/communities/<%= community.id %>" class="btn btn_detail_square">
+            <span><%= community.name %></span>
+          </a>&emsp;
         <% end %>
       </div>
       <br>
     </div>
+
+    <%= paginate @communities %>
+    <br>
+    <br>
   </div>
 </div>
