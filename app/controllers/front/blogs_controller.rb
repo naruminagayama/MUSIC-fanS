@@ -1,9 +1,9 @@
 class Front::BlogsController < ApplicationController
 
   before_action :find_blog, only: [:edit, :update, :destroy]
+  before_action :set_customer, only: [:index, :create, :update]
 
   def index
-    @customer = current_customer
     @blog = Blog.new
     @blogs = Blog.where(customer_id: current_customer.id)
                  .order("created_at DESC")
@@ -13,7 +13,6 @@ class Front::BlogsController < ApplicationController
   def create
     @blog = Blog.new(blog_params)
     @blog.customer_id = current_customer.id
-    @customer = current_customer
     @blogs = Blog.where(customer_id: current_customer.id)
                  .order("created_at DESC")
                  .page(params[:page]).per(2)
@@ -41,7 +40,6 @@ class Front::BlogsController < ApplicationController
   def update
     return redirect_to front_blogs_path if @blog.customer_id != current_customer.id
 
-    @customer = current_customer
     @blogs = Blog.where(customer_id: current_customer.id)
                  .order("created_at DESC")
                  .page(params[:page]).per(2)
@@ -85,6 +83,10 @@ class Front::BlogsController < ApplicationController
 
   def find_blog
     @blog = Blog.find(params[:id])
+  end
+
+  def set_customer
+    @customer = current_customer
   end
 
 end
