@@ -1,38 +1,48 @@
 require 'rails_helper'
 
-RSpec.describe 'バリデーション', type: :model do
-  context "必須項目が全て埋まっている時" do
-    before do
-      @customer = Customer.new
-      @customer.last_name = '田中'
-      @customer.first_name = '二郎'
-      @customer.last_name_kana = 'タナカ'
-      @customer.first_name_kana = 'ジロウ'
-      @customer.email = 'test@example.com'
-      @customer.nickname = 'テスト'
-      @customer.password = 'password'
-      @customer.password_confirmation = 'password'
+describe 'Customer' do
+
+  describe 'バリデーション' do
+
+    context '必須項目が全て埋まっている時' do
+      example 'バリデーションに成功すること' do
+      customer = build(:customer)
+      customer.valid?
+      expect(customer).to be_valid
+      end
     end
-    example 'バリデーションに成功する' do
-      expect(@customer).to be_valid
+
+    context '必須項目が全て埋まっていない時' do
+      example 'バリデーションに失敗すること' do
+        customer = build(:customer, email: '')
+        customer.valid?
+        expect(customer.errors[:email]).to include('が入力されていません')
+      end
     end
+
   end
 
-  context '必須項目が全て埋まっていない時' do
-    before do
-      @customer = Customer.new
-      @customer.last_name = ''
-      @customer.first_name = '二郎'
-      @customer.last_name_kana = 'タナカ'
-      @customer.first_name_kana = 'ジロウ'
-      @customer.email = 'test@example.com'
-      @customer.nickname = 'テスト'
-      @customer.password = 'password'
-      @customer.password_confirmation = 'password'
+  describe 'フォロー機能' do
+
+    context 'ユーザーをフォローする時' do
+      let!(:customer1) { create(:customer) }
+      let!(:customer2) { create(:customer) }
+      example 'フォローに成功すること' do
+        expect(customer1.follow!(customer2.id)).to be_truthy
+      end
     end
-    example 'バリデーションに失敗する' do
-      expect(@customer).to be_invalid
-      expect(@customer.errors[:last_name]).to include('が入力されていません')
+
+    context 'ユーザーをフォローバックする時' do
+      let!(:customer1) { create(:customer) }
+      let!(:customer2) { create(:customer) }
+      before do
+        customer1.follow!(customer2.id)
+      end
+      example 'フォローバックに成功すること' do
+        expect(customer1.unfollow!(customer2.id)).to be_truthy
+      end
     end
+
   end
+
 end
