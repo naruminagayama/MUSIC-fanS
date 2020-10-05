@@ -22,9 +22,9 @@ describe 'Customer' do
 
   end
 
-  describe 'フォロー機能' do
+  describe 'follow!(customer_id)' do
 
-    context 'ユーザーをフォローする時' do
+    context 'フォローしていないカスタマーIDを渡す時' do
       let!(:customer1) { create(:customer) }
       let!(:customer2) { create(:customer) }
       example 'フォローに成功すること' do
@@ -32,14 +32,59 @@ describe 'Customer' do
       end
     end
 
-    context 'ユーザーをフォローバックする時' do
+    context 'フォロー済みのカスタマーIDを渡す時' do
       let!(:customer1) { create(:customer) }
       let!(:customer2) { create(:customer) }
       before do
         customer1.follow!(customer2.id)
       end
-      example 'フォローバックに成功すること' do
+      example '例外処理が発生すること' do
+        expect{customer1.follow!(customer2.id)}.to raise_error(ActiveRecord::RecordInvalid)
+      end
+    end
+
+    context '存在しないカスタマーIDを渡す時' do
+      let!(:customer1) { create(:customer) }
+      let!(:customer2) { create(:customer) }
+      before do
+        customer2.destroy
+      end
+      example '例外処理が発生すること' do
+        expect{customer1.follow!(customer2.id)}.to raise_error(ActiveRecord::RecordNotFound)
+      end
+    end
+
+  end
+
+  describe 'unfollow!(customer_id)' do
+
+    context 'フォロー済のカスタマーIDを渡す時' do
+      let!(:customer1) { create(:customer) }
+      let!(:customer2) { create(:customer) }
+      before do
+        customer1.follow!(customer2.id)
+      end
+      example 'フォローの解除に成功すること' do
         expect(customer1.unfollow!(customer2.id)).to be_truthy
+      end
+    end
+
+    context 'フォローしていないカスタマーIDを渡す時' do
+      let!(:customer1) { create(:customer) }
+      let!(:customer2) { create(:customer) }
+      example '例外処理が発生すること' do
+        expect{customer1.unfollow!(customer2.id)}.to raise_error(ActiveRecord::RecordInvalid)
+      end
+    end
+
+    context '存在しないカスタマーIDを渡す時' do
+      let!(:customer1) { create(:customer) }
+      let!(:customer2) { create(:customer) }
+      before do
+        customer2.destroy
+      end
+      example '例外処理が発生すること' do
+        expect{customer1.unfollow!(customer2.id)}.to raise_error(ActiveRecord::RecordNotFound)
       end
     end
 

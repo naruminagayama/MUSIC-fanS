@@ -27,12 +27,22 @@ class Customer < ApplicationRecord
 
   # ユーザーをフォローする
   def follow!(customer_id)
-    follower.create(followed_id: customer_id)
+    customer = Customer.find(customer_id)
+    if self.following?(customer)
+      raise ActiveRecord::RecordInvalid
+    else
+      follower.create!(followed_id: customer_id)
+    end
   end
 
   # ユーザーのフォローを外す
   def unfollow!(customer_id)
-    follower.find_by(followed_id: customer_id).destroy
+    customer = Customer.find(customer_id)
+    if self.following?(customer)
+      follower.find_by(followed_id: customer_id).destroy!
+    else
+      raise ActiveRecord::RecordInvalid
+    end
   end
 
   # フォローしていればtrueを返す
